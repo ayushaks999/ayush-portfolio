@@ -1,4 +1,5 @@
 import React, { useMemo, useRef, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import {
   AnimatePresence,
   motion,
@@ -1156,25 +1157,24 @@ function Footer() {
 
 export default function App() {
   return (
-    <main className="min-h-screen bg-[#050505] text-white selection:bg-red-600 selection:text-white">
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Achievements />
-      <Contact />
-      <Footer />
+    <>
+      <main className="min-h-screen bg-[#050505] text-white selection:bg-red-600 selection:text-white">
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Achievements />
+        <Contact />
+        <Footer />
 
-      <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[2] h-24 bg-gradient-to-t from-black to-transparent" />
-    </main>
+        <div className="pointer-events-none fixed inset-x-0 bottom-0 z-[2] h-24 bg-gradient-to-t from-black to-transparent" />
+      </main>
+
+      <Analytics />
+    </>
   );
 }
-
-
-
-
-
 
 
 
