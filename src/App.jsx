@@ -795,7 +795,7 @@ function Achievements() {
                   National Institute of Technology, Durgapur
                 </h4>
                 <p className="mt-2 text-slate-400">B.Tech in Computer Science and Engineering</p>
-                <p className="mt-2 text-slate-300">CGPA / 10</p>
+                <p className="mt-2 text-slate-300"></p>
               </motion.div>
 
               <motion.div whileHover={{ x: 4 }} className="rounded-2xl border border-white/10 bg-black/30 p-5">
