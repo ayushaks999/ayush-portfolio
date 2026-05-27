@@ -312,7 +312,7 @@ function useMouseGlow() {
     y.set(e.clientY);
   }
 
-  const background = useMotionTemplate`radial-gradient(620px circle at ${x}px ${y}px, rgba(239,68,68,0.10), transparent 42%)`;
+  const background = useMotionTemplate`radial-gradient(620px circle at ${x}px ${y}px, rgba(239,68,68,0.13), transparent 42%)`;
   return { onMove, background };
 }
 
@@ -443,26 +443,26 @@ function AmbientFX() {
   return (
     <div onMouseMove={onMove} className="pointer-events-none fixed inset-0 z-[1]">
       <motion.div style={{ background }} className="absolute inset-0 opacity-100" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.26),transparent_31%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.20),transparent_33%),radial-gradient(circle_at_center,rgba(255,255,255,0.035),transparent_52%),linear-gradient(to_bottom,rgba(255,255,255,0.018),transparent_20%,transparent_80%,rgba(255,255,255,0.018))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.32),transparent_31%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.26),transparent_33%),radial-gradient(circle_at_center,rgba(255,255,255,0.035),transparent_52%),linear-gradient(to_bottom,rgba(255,255,255,0.018),transparent_20%,transparent_80%,rgba(255,255,255,0.018))]" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.026)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.026)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.15] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]" />
 
       <motion.div
         aria-hidden
         animate={reduceMotion ? {} : { x: [0, 24, 0], y: [0, -18, 0] }}
         transition={reduceMotion ? {} : { duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-[-7rem] top-[5rem] h-96 w-96 rounded-full bg-red-500/18 blur-3xl"
+        className="absolute left-[-7rem] top-[5rem] h-96 w-96 rounded-full bg-red-500/22 blur-3xl"
       />
       <motion.div
         aria-hidden
         animate={reduceMotion ? {} : { x: [0, -20, 0], y: [0, 20, 0] }}
         transition={reduceMotion ? {} : { duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-[-8rem] right-[-7rem] h-[28rem] w-[28rem] rounded-full bg-sky-400/16 blur-3xl"
+        className="absolute bottom-[-8rem] right-[-7rem] h-[28rem] w-[28rem] rounded-full bg-sky-400/21 blur-3xl"
       />
       <motion.div
         aria-hidden
         animate={reduceMotion ? {} : { opacity: [0.35, 0.8, 0.35], scale: [1, 1.08, 1] }}
         transition={reduceMotion ? {} : { duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-[8%] right-[8%] h-64 w-64 rounded-full bg-cyan-300/8 blur-3xl"
+        className="absolute bottom-[8%] right-[8%] h-64 w-64 rounded-full bg-cyan-300/10 blur-3xl"
       />
       <motion.div
         aria-hidden
@@ -566,9 +566,9 @@ function Hero() {
           <motion.div
             whileHover={{ y: -10, rotate: -0.4, scale: 1.01 }}
             transition={{ type: "spring", stiffness: 150, damping: 18 }}
-            className="relative overflow-hidden rounded-[2rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.075),rgba(127,29,29,0.045),rgba(56,189,248,0.035))] p-7 shadow-[0_0_70px_rgba(56,189,248,0.10)]"
+            className="relative overflow-hidden rounded-[2rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.075),rgba(127,29,29,0.045),rgba(56,189,248,0.035))] p-7 shadow-[0_0_78px_rgba(56,189,248,0.14)]"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.18),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.14),transparent_36%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.23),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.18),transparent_36%)]" />
             <div className="relative flex items-center justify-between gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-red-300">Quick Profile</p>
@@ -918,7 +918,7 @@ function Projects() {
                       transition={{ duration: 0.7, ease: "easeOut" }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/25 to-transparent" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.18),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.14),transparent_36%)] opacity-0 transition duration-300 group-hover:opacity-100" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.23),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.18),transparent_36%)] opacity-0 transition duration-300 group-hover:opacity-100" />
                     <motion.p
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -1088,7 +1088,7 @@ function Contact() {
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7 }}
-        className="mx-auto max-w-5xl rounded-[2rem] border border-red-500/10 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.22),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.20),transparent_42%),linear-gradient(135deg,rgba(255,255,255,0.055),rgba(127,29,29,0.045),rgba(56,189,248,0.026))] p-8 text-center shadow-[0_0_80px_rgba(56,189,248,0.10)] md:p-14"
+        className="mx-auto max-w-5xl rounded-[2rem] border border-red-500/10 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.28),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.25),transparent_42%),linear-gradient(135deg,rgba(255,255,255,0.058),rgba(127,29,29,0.048),rgba(56,189,248,0.03))] p-8 text-center shadow-[0_0_88px_rgba(56,189,248,0.14)] md:p-14"
       >
         <SectionHeader
           eyebrow="Contact"
@@ -1156,7 +1156,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-red-500/10 bg-black px-5 py-8 text-center text-sm text-slate-500">
-      © {new Date().getFullYear()} Ayush Kumar Shaw · Built with React, Tailwind CSS.
+      © {new Date().getFullYear()} Ayush Kumar Shaw · Built with React, Tailwind CSS, and premium motion design.
     </footer>
   );
 }
@@ -1181,4 +1181,3 @@ export default function App() {
     </>
   );
 }
-
