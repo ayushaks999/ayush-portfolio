@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import {
   AnimatePresence,
   motion,
@@ -28,114 +28,6 @@ import {
   Orbit,
   Zap,
 } from "lucide-react";
-
-const siteUrl = "https://ayushshaw-nitdgp.vercel.app/";
-
-const profile = {
-  name: "Ayush Kumar Shaw",
-  role: "Software Engineer · AI/ML · Agentic RAG",
-  subtitle:
-    "Computer Science undergraduate at NIT Durgapur building production-grade backend systems, GenAI applications, RAG pipelines, and applied ML solutions.",
-  email: "ayushaks099@gmail.com",
-  github: "https://github.com/ayushaks999",
-  linkedin: "https://linkedin.com/in/ayush-shaw-231b86325",
-  leetcode: "https://leetcode.com/u/ayushaks9999/",
-  codeforces: "https://codeforces.com/profile/ayushaks999",
-};
-
-const seo = {
-  title: "Ayush Kumar Shaw | NIT Durgapur CSE | Software Engineer | AI/ML",
-  description:
-    "Official portfolio of Ayush Kumar Shaw, B.Tech CSE student at NIT Durgapur focused on Software Engineering, AI/ML, Agentic RAG, Backend Systems, GenAI, LangChain, RAG pipelines, and competitive programming.",
-  keywords:
-    "Ayush Kumar Shaw, Ayush Shaw, Ayush Shaw NIT Durgapur, Ayush Shaw NIT DGP, Ayush Kumar Shaw NIT Durgapur, NIT Durgapur CSE, NIT DGP CSE, Software Engineer, AI ML Engineer, Backend Developer, GenAI Developer, Agentic RAG, RAG, LangChain, LangGraph, AutoGen, LeetCode Knight, Codeforces Specialist, ayushaks999, ayushaks9999",
-};
-
-function SEO() {
-  useEffect(() => {
-    document.title = seo.title;
-
-    const setMeta = (selector, attr, value) => {
-      let tag = document.head.querySelector(selector);
-      if (!tag) {
-        tag = document.createElement("meta");
-        const match = selector.match(/\[(name|property)="(.+?)"\]/);
-        if (match) tag.setAttribute(match[1], match[2]);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute(attr, value);
-    };
-
-    const setLink = (rel, href) => {
-      let tag = document.head.querySelector(`link[rel="${rel}"]`);
-      if (!tag) {
-        tag = document.createElement("link");
-        tag.setAttribute("rel", rel);
-        document.head.appendChild(tag);
-      }
-      tag.setAttribute("href", href);
-    };
-
-    setMeta('meta[name="description"]', "content", seo.description);
-    setMeta('meta[name="keywords"]', "content", seo.keywords);
-    setMeta('meta[name="author"]', "content", profile.name);
-    setMeta('meta[name="robots"]', "content", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
-    setMeta('meta[name="googlebot"]', "content", "index, follow");
-    setMeta('meta[property="og:title"]', "content", seo.title);
-    setMeta('meta[property="og:description"]', "content", seo.description);
-    setMeta('meta[property="og:type"]', "content", "website");
-    setMeta('meta[property="og:url"]', "content", siteUrl);
-    setMeta('meta[property="og:site_name"]', "content", "Ayush Kumar Shaw Portfolio");
-    setMeta('meta[property="og:locale"]', "content", "en_IN");
-    setMeta('meta[name="twitter:card"]', "content", "summary_large_image");
-    setMeta('meta[name="twitter:title"]', "content", seo.title);
-    setMeta('meta[name="twitter:description"]', "content", seo.description);
-    setLink("canonical", siteUrl);
-
-    let script = document.head.querySelector('script[type="application/ld+json"][data-seo="person"]');
-    if (!script) {
-      script = document.createElement("script");
-      script.type = "application/ld+json";
-      script.setAttribute("data-seo", "person");
-      document.head.appendChild(script);
-    }
-
-    script.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Person",
-      name: "Ayush Kumar Shaw",
-      alternateName: ["Ayush Shaw", "Ayush K Shaw", "ayushaks999"],
-      url: siteUrl,
-      email: profile.email,
-      jobTitle: "Software Engineer, AI/ML Developer, Backend Developer",
-      description: seo.description,
-      alumniOf: {
-        "@type": "CollegeOrUniversity",
-        name: "National Institute of Technology, Durgapur",
-        alternateName: ["NIT Durgapur", "NIT DGP"],
-      },
-      knowsAbout: [
-        "Software Engineering",
-        "AI/ML",
-        "Backend Development",
-        "Agentic RAG",
-        "Retrieval Augmented Generation",
-        "LangChain",
-        "LangGraph",
-        "AutoGen",
-        "FastAPI",
-        "Flask",
-        "Docker",
-        "Azure",
-        "Competitive Programming",
-        "Data Structures and Algorithms",
-      ],
-      sameAs: [profile.github, profile.linkedin, profile.leetcode, profile.codeforces],
-    });
-  }, []);
-
-  return null;
-}
 
 function GitHubIcon({ size = 18, className = "" }) {
   return (
@@ -204,6 +96,18 @@ function CodeforcesIcon({ size = 18, className = "" }) {
   );
 }
 
+const profile = {
+  name: "Ayush Kumar Shaw",
+  role: "Software Engineer · AI/ML · Agentic RAG",
+  subtitle:
+    "Computer Science undergraduate at NIT Durgapur building production-grade backend systems, GenAI applications, RAG pipelines, and applied ML solutions.",
+  email: "ayushaks099@gmail.com",
+  github: "https://github.com/ayushaks999",
+  linkedin: "https://linkedin.com/in/ayush-shaw-231b86325",
+  leetcode: "https://leetcode.com/u/ayushaks9999/",
+  codeforces: "https://codeforces.com/profile/ayushaks999",
+};
+
 const navItems = ["Home", "About", "Skills", "Projects", "Achievements", "Contact"];
 
 const stats = [
@@ -211,7 +115,6 @@ const stats = [
   { value: "Knight", label: "LeetCode Level" },
   { value: "1400+", label: "Codeforces Rating" },
   { value: "1000+", label: "DSA Problems Solved" },
-  { value: "Top 1%", label: "JEE among 16+ lakh students" },
 ];
 
 const skillGroups = [
@@ -467,25 +370,25 @@ function Navbar() {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-red-400 via-fuchsia-400 to-blue-400"
+        className="fixed left-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-red-400 via-red-500 to-red-300"
         style={{ scaleX }}
       />
 
-      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-black/55 backdrop-blur-2xl" aria-label="Main navigation">
+      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-red-500/10 bg-black/60 backdrop-blur-2xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
           <MagneticButton onClick={() => scrollToSection("Home")} className="text-left">
             <p className="font-serif text-xl italic text-white md:text-2xl">{profile.name}</p>
             <p className="text-[10px] uppercase tracking-[0.24em] text-slate-500">Portfolio</p>
           </MagneticButton>
 
-          <div className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 p-2 md:flex">
+          <div className="hidden items-center gap-2 rounded-full border border-red-500/10 bg-white/[0.04] p-2 md:flex">
             {navItems.map((item) => (
               <motion.button
                 key={item}
                 whileHover={{ y: -2, scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={() => scrollToSection(item)}
-                className="rounded-full px-4 py-2 text-sm text-slate-300 transition hover:bg-white hover:text-black"
+                className="rounded-full px-4 py-2 text-sm text-slate-300 transition hover:bg-red-500/10 hover:text-white"
               >
                 {item}
               </motion.button>
@@ -494,9 +397,8 @@ function Navbar() {
 
           <motion.button
             whileTap={{ scale: 0.92 }}
-            className="rounded-2xl border border-white/10 bg-white/5 p-3 text-white md:hidden"
+            className="rounded-2xl border border-red-500/10 bg-white/[0.04] p-3 text-white md:hidden"
             onClick={() => setOpen(!open)}
-            aria-label="Toggle menu"
           >
             {open ? <X size={18} /> : <Menu size={18} />}
           </motion.button>
@@ -509,7 +411,7 @@ function Navbar() {
               animate={{ opacity: 1, y: 0, height: "auto" }}
               exit={{ opacity: 0, y: -12, height: 0 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="overflow-hidden border-t border-white/10 bg-black px-5 py-4 md:hidden"
+              className="overflow-hidden border-t border-red-500/10 bg-black px-5 py-4 md:hidden"
             >
               <div className="flex flex-col gap-3">
                 {navItems.map((item) => (
@@ -519,7 +421,7 @@ function Navbar() {
                       scrollToSection(item);
                       setOpen(false);
                     }}
-                    className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left text-white"
+                    className="rounded-2xl border border-red-500/10 bg-white/[0.04] px-4 py-3 text-left text-white"
                   >
                     {item}
                   </button>
@@ -540,20 +442,20 @@ function AmbientFX() {
   return (
     <div onMouseMove={onMove} className="pointer-events-none fixed inset-0 z-[1]">
       <motion.div style={{ background }} className="absolute inset-0 opacity-100" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(220,38,38,0.14),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.12),transparent_24%),linear-gradient(to_bottom,rgba(255,255,255,0.02),transparent_20%,transparent_80%,rgba(255,255,255,0.02))]" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.18] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(153,27,27,0.12),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(127,29,29,0.12),transparent_26%),linear-gradient(to_bottom,rgba(255,255,255,0.018),transparent_20%,transparent_80%,rgba(255,255,255,0.018))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.16] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]" />
 
       <motion.div
         aria-hidden
         animate={reduceMotion ? {} : { x: [0, 22, 0], y: [0, -16, 0] }}
         transition={reduceMotion ? {} : { duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-[-6rem] top-[8rem] h-72 w-72 rounded-full bg-red-500/10 blur-3xl"
+        className="absolute left-[-6rem] top-[8rem] h-72 w-72 rounded-full bg-red-500/8 blur-3xl"
       />
       <motion.div
         aria-hidden
         animate={reduceMotion ? {} : { x: [0, -18, 0], y: [0, 18, 0] }}
         transition={reduceMotion ? {} : { duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute right-[-5rem] top-[18rem] h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"
+        className="absolute right-[-5rem] top-[18rem] h-80 w-80 rounded-full bg-red-950/20 blur-3xl"
       />
       <motion.div
         aria-hidden
@@ -583,20 +485,20 @@ function Hero() {
         className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.08fr_0.92fr]"
       >
         <div className="relative">
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-slate-300 backdrop-blur-xl">
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 rounded-full border border-red-500/10 bg-white/[0.04] px-4 py-2 text-xs text-slate-300 backdrop-blur-xl">
             <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.8)]" />
             Open to SDE internships, AI/ML roles, backend systems, and GenAI work
           </motion.div>
 
           <motion.p variants={itemVariants} className="mt-6 text-xs uppercase tracking-[0.28em] text-red-300">
-            Ayush Kumar Shaw · NIT Durgapur CSE · Software Engineering · AI/ML
+            Software Engineering · AI/ML
           </motion.p>
 
           <motion.h1
             variants={itemVariants}
             className="mt-5 max-w-3xl font-serif text-5xl italic leading-[0.92] text-white md:text-7xl"
           >
-            Ayush Kumar Shaw — Software Engineer building intelligent products.
+            Building products that feel intelligent.
           </motion.h1>
 
           <motion.p variants={itemVariants} className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
@@ -610,12 +512,12 @@ function Hero() {
                 variants={itemVariants}
                 whileHover={{ y: -8, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 250, damping: 18 }}
-                className="group relative overflow-hidden rounded-[1.4rem] border border-white/10 bg-white/5 p-5 backdrop-blur-xl"
+                className="group relative overflow-hidden rounded-[1.4rem] border border-red-500/10 bg-white/[0.04] p-5 backdrop-blur-xl"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
                 <p className="font-serif text-3xl italic text-white">{item.value}</p>
                 <p className="mt-2 text-sm text-slate-400">{item.label}</p>
-                <div className="mt-4 h-[1px] w-full bg-gradient-to-r from-white/10 to-transparent" />
+                <div className="mt-4 h-[1px] w-full bg-gradient-to-r from-red-300/20 to-transparent" />
                 <p className="mt-3 text-[11px] uppercase tracking-[0.22em] text-slate-500">Signal {index + 1}</p>
               </motion.div>
             ))}
@@ -625,21 +527,21 @@ function Hero() {
             <MagneticButton
               href={profile.github}
               external
-              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-black transition hover:bg-red-100"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-black transition hover:bg-red-50"
             >
-              <Code2 size={18} />
+              <GitHubIcon size={18} />
               GitHub
             </MagneticButton>
             <MagneticButton
               href={`mailto:${profile.email}`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 font-semibold text-white transition hover:border-red-400"
+              className="inline-flex items-center gap-2 rounded-full border border-red-500/15 bg-white/[0.04] px-6 py-3 font-semibold text-white transition hover:border-red-300/60 hover:bg-red-500/10"
             >
               <Mail size={18} />
               Contact
             </MagneticButton>
             <MagneticButton
               onClick={() => scrollToSection("projects")}
-              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-6 py-3 font-semibold text-slate-200 transition hover:border-white/30"
+              className="inline-flex items-center gap-2 rounded-full border border-red-500/15 bg-black/30 px-6 py-3 font-semibold text-slate-200 transition hover:border-red-300/60 hover:bg-red-500/10"
             >
               <ArrowUpRight size={18} />
               View Work
@@ -657,27 +559,25 @@ function Hero() {
           <motion.div
             whileHover={{ y: -10, rotate: -0.4, scale: 1.01 }}
             transition={{ type: "spring", stiffness: 150, damping: 18 }}
-            className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.03))] p-7 shadow-[0_0_60px_rgba(127,29,29,0.18)]"
+            className="relative overflow-hidden rounded-[2rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.075),rgba(127,29,29,0.04),rgba(255,255,255,0.025))] p-7 shadow-[0_0_60px_rgba(127,29,29,0.14)]"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.16),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.10),transparent_32%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(185,28,28,0.14),transparent_31%),radial-gradient(circle_at_bottom_left,rgba(127,29,29,0.10),transparent_34%)]" />
             <div className="relative flex items-center justify-between gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-red-300">Quick Profile</p>
-                <h2 className="mt-4 font-serif text-3xl italic text-white">Ayush Kumar Shaw</h2>
+                <h3 className="mt-4 font-serif text-3xl italic text-white">Ayush Kumar Shaw</h3>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-red-300">
+              <div className="rounded-2xl border border-red-500/10 bg-white/[0.04] p-3 text-red-300">
                 <Sparkles size={20} />
               </div>
             </div>
 
-            <div className="relative mt-8 overflow-hidden rounded-[1.6rem] border border-white/10 bg-black/35 p-5">
+            <div className="relative mt-8 overflow-hidden rounded-[1.6rem] border border-red-500/10 bg-black/35 p-5">
               <div className="mb-4 flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-slate-500">
                 <TerminalSquare size={14} />
                 System profile
               </div>
               <div className="space-y-2 font-mono text-[12px] leading-7 text-slate-300">
-                <p><span className="text-emerald-300">&gt;</span> name: Ayush Kumar Shaw</p>
-                <p><span className="text-emerald-300">&gt;</span> education: NIT Durgapur B.Tech CSE 2023–2027</p>
                 <p><span className="text-emerald-300">&gt;</span> role: {profile.role}</p>
                 <p><span className="text-emerald-300">&gt;</span> stack: backend · GenAI · RAG · ML</p>
                 <p><span className="text-emerald-300">&gt;</span> focus: scalable, production-grade products</p>
@@ -686,12 +586,12 @@ function Hero() {
               <motion.div
                 animate={reduceMotion ? {} : { opacity: [0.2, 1, 0.2] }}
                 transition={reduceMotion ? {} : { duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-red-500/10 to-transparent"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-red-500/8 to-transparent"
               />
             </div>
 
             <p className="relative mt-6 text-base leading-7 text-slate-400">
-              B.Tech CSE student at NIT Durgapur, also searched as NIT DGP, focused on backend-heavy systems, Agentic RAG, applied ML, and strong competitive programming fundamentals.
+              B.Tech CSE student at NIT Durgapur (2023–2027), focused on backend-heavy systems, Agentic RAG, applied ML, and strong competitive programming fundamentals.
             </p>
 
             <div className="relative mt-8 space-y-4">
@@ -706,7 +606,7 @@ function Hero() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.15 + index * 0.12, duration: 0.55 }}
                   whileHover={{ x: 6 }}
-                  className="rounded-2xl border border-white/10 bg-black/30 p-4"
+                  className="rounded-2xl border border-red-500/10 bg-black/30 p-4"
                 >
                   <p className="text-sm text-slate-400">{label}</p>
                   <p className="mt-1 font-medium text-white">{value}</p>
@@ -734,9 +634,9 @@ function About() {
     <section id="about" className="bg-[#050505] px-5 py-24 text-white">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="About Ayush Kumar Shaw"
+          eyebrow="About"
           title="Engineer first. AI-powered when it matters."
-          desc="I am Ayush Kumar Shaw, a B.Tech Computer Science and Engineering student at NIT Durgapur. I focus on building real systems — clean APIs, reliable retrieval pipelines, scalable data workflows, practical ML systems, and production-oriented project architecture."
+          desc="I focus on building real systems — clean APIs, reliable retrieval pipelines, scalable data workflows, practical ML systems, and production-oriented project architecture."
         />
 
         <motion.div
@@ -773,9 +673,9 @@ function About() {
                 variants={itemVariants}
                 whileHover={{ y: -8, scale: 1.01 }}
                 transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                className="rounded-[1.6rem] border border-white/10 bg-white/5 p-6"
+                className="rounded-[1.6rem] border border-red-500/10 bg-white/[0.04] p-6"
               >
-                <div className="mb-4 inline-flex rounded-2xl border border-white/10 bg-black/30 p-3">
+                <div className="mb-4 inline-flex rounded-2xl border border-red-500/10 bg-black/30 p-3">
                   <Icon className="text-red-300" size={20} />
                 </div>
                 <h3 className="font-serif text-2xl italic text-white">{card.title}</h3>
@@ -796,7 +696,7 @@ function Skills() {
         <SectionHeader
           eyebrow="Skills"
           title="Strong foundations across engineering and AI."
-          desc="Ayush Kumar Shaw works across software engineering, AI/ML, backend systems, Agentic RAG, LangChain, vector databases, and competitive programming."
+          desc="Structured core skills on the left, with a visually rich skill universe on the right — built to feel alive and high-end."
         />
 
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
@@ -815,10 +715,10 @@ function Skills() {
                   variants={itemVariants}
                   whileHover={{ y: -6, scale: 1.01 }}
                   transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                  className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5"
+                  className="rounded-[1.5rem] border border-red-500/10 bg-white/[0.04] p-5"
                 >
                   <div className="mb-4 flex items-center gap-3">
-                    <div className="rounded-2xl border border-white/10 bg-black/30 p-3">
+                    <div className="rounded-2xl border border-red-500/10 bg-black/30 p-3">
                       <Icon className="text-red-300" size={18} />
                     </div>
                     <h3 className="font-serif text-2xl italic text-white">{group.title}</h3>
@@ -829,7 +729,7 @@ function Skills() {
                       <motion.span
                         key={item}
                         whileHover={{ y: -2, scale: 1.04 }}
-                        className="rounded-full border border-white/10 bg-black/40 px-3 py-1.5 text-sm text-slate-300"
+                        className="rounded-full border border-red-500/10 bg-black/40 px-3 py-1.5 text-sm text-slate-300"
                       >
                         {item}
                       </motion.span>
@@ -845,19 +745,19 @@ function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.7 }}
-            className="rounded-[1.8rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6"
+            className="rounded-[1.8rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.04),rgba(127,29,29,0.03),rgba(255,255,255,0.015))] p-6"
           >
             <div className="mb-5 flex items-center justify-between gap-3">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-red-300">Skill Map</p>
                 <h3 className="mt-2 font-serif text-3xl italic text-white">Technology Landscape</h3>
               </div>
-              <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-red-300">
+              <div className="rounded-2xl border border-red-500/10 bg-white/[0.04] p-3 text-red-300">
                 <Orbit size={18} />
               </div>
             </div>
 
-            <div className="relative hidden h-[560px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 lg:block">
+            <div className="relative hidden h-[560px] overflow-hidden rounded-[1.5rem] border border-red-500/10 bg-black/30 lg:block">
               <motion.div
                 aria-hidden
                 animate={{ rotate: [0, 360] }}
@@ -874,9 +774,9 @@ function Skills() {
                 aria-hidden
                 animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500/15 blur-2xl"
+                className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500/12 blur-2xl"
               />
-              <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/55 shadow-[0_0_60px_rgba(239,68,68,0.22)]">
+              <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-red-500/10 bg-black/55 shadow-[0_0_60px_rgba(127,29,29,0.18)]">
                 <Layers3 className="text-red-300" size={30} />
               </div>
               {skillCloud.map((item, index) => (
@@ -887,7 +787,7 @@ function Skills() {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: index * 0.05, duration: 0.55 }}
                   whileHover={{ scale: 1.12, rotate: -1 }}
-                  className={`absolute rounded-full border border-white/10 bg-white/6 px-3 py-1.5 font-semibold text-white/90 ${item.size} shadow-[0_0_16px_rgba(255,255,255,0.08)] hover:text-red-300`}
+                  className={`absolute rounded-full border border-red-500/10 bg-white/[0.04] px-3 py-1.5 font-semibold text-white/90 ${item.size} shadow-[0_0_16px_rgba(255,255,255,0.06)] hover:text-red-300`}
                   style={{ top: item.top, left: item.left }}
                 >
                   {item.label}
@@ -900,7 +800,7 @@ function Skills() {
                 <motion.span
                   key={item.label}
                   whileHover={{ y: -3, scale: 1.04 }}
-                  className="rounded-full border border-white/10 bg-black/40 px-4 py-2 text-sm text-slate-300"
+                  className="rounded-full border border-red-500/10 bg-black/40 px-4 py-2 text-sm text-slate-300"
                 >
                   {item.label}
                 </motion.span>
@@ -960,9 +860,9 @@ function Projects() {
     <section id="projects" className="bg-[#050505] px-5 py-24 text-white">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="Projects by Ayush Kumar Shaw"
+          eyebrow="Projects"
           title="Selected engineering work."
-          desc="A focused collection of backend systems, GenAI applications, RAG platforms, desktop AI products, and ML pipelines built by Ayush Kumar Shaw."
+          desc="A focused collection of backend systems, GenAI applications, RAG platforms, desktop AI products, and ML pipelines."
         />
 
         <motion.div
@@ -980,8 +880,8 @@ function Projects() {
               onClick={() => setActiveFilter(filter)}
               className={`rounded-full border px-4 py-2 text-sm transition ${
                 activeFilter === filter
-                  ? "border-red-400 bg-red-500/15 text-white"
-                  : "border-white/10 bg-white/5 text-slate-300 hover:border-red-400"
+                  ? "border-red-300/60 bg-red-500/12 text-white"
+                  : "border-red-500/10 bg-white/[0.04] text-slate-300 hover:border-red-300/60 hover:bg-red-500/10"
               }`}
             >
               {filter}
@@ -1000,29 +900,29 @@ function Projects() {
                   exit={{ opacity: 0, y: 18, scale: 0.98 }}
                   transition={{ duration: 0.45, delay: index * 0.03 }}
                   whileHover={{ y: -8 }}
-                  className="group overflow-hidden rounded-[1.7rem] border border-white/10 bg-white/5 transition hover:border-red-400/50"
+                  className="group overflow-hidden rounded-[1.7rem] border border-red-500/10 bg-white/[0.04] transition hover:border-red-300/50"
                 >
                   <div className="relative overflow-hidden">
                     <motion.img
                       src={project.image}
-                      alt={`${project.title} by Ayush Kumar Shaw`}
+                      alt={project.title}
                       className="h-72 w-full object-cover"
                       whileHover={{ scale: 1.08 }}
                       transition={{ duration: 0.7, ease: "easeOut" }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/25 to-transparent" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,transparent_0%,rgba(255,255,255,0.10)_120%)] opacity-0 transition duration-300 group-hover:opacity-100" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,transparent_0%,rgba(255,255,255,0.08)_120%)] opacity-0 transition duration-300 group-hover:opacity-100" />
                     <motion.p
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="absolute bottom-4 left-4 rounded-full border border-white/10 bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-slate-300"
+                      className="absolute bottom-4 left-4 rounded-full border border-red-500/10 bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-slate-300"
                     >
                       {project.category}
                     </motion.p>
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileHover={{ opacity: 1, scale: 1 }}
-                      className="absolute right-4 top-4 rounded-full border border-white/10 bg-black/55 p-3 text-red-300 backdrop-blur-xl"
+                      className="absolute right-4 top-4 rounded-full border border-red-500/10 bg-black/55 p-3 text-red-300 backdrop-blur-xl"
                     >
                       <Zap size={16} />
                     </motion.div>
@@ -1037,7 +937,7 @@ function Projects() {
                         <motion.span
                           key={item}
                           whileHover={{ y: -2, scale: 1.04 }}
-                          className="rounded-lg border border-white/10 bg-black/40 px-2.5 py-1 text-xs text-slate-300"
+                          className="rounded-lg border border-red-500/10 bg-black/40 px-2.5 py-1 text-xs text-slate-300"
                         >
                           {item}
                         </motion.span>
@@ -1048,9 +948,9 @@ function Projects() {
                       <MagneticButton
                         href={project.repo}
                         external
-                        className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-semibold text-black transition hover:bg-red-100"
+                        className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-semibold text-black transition hover:bg-red-50"
                       >
-                        <Code2 size={16} />
+                        <GitHubIcon size={16} />
                         View Code
                       </MagneticButton>
                       <a
@@ -1080,7 +980,7 @@ function Achievements() {
         <SectionHeader
           eyebrow="Achievements"
           title="Competitive programming and academics."
-          desc="Ayush Kumar Shaw combines strong algorithmic foundations with practical software engineering and AI project work at NIT Durgapur."
+          desc="Strong algorithmic foundation combined with practical software engineering and AI project work."
         />
 
         <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
@@ -1109,11 +1009,6 @@ function Achievements() {
               },
               {
                 icon: GraduationCap,
-                title: "JEE Top 1%",
-                text: "Ranked in the top 1% among 16+ lakh JEE aspirants",
-              },
-              {
-                icon: GraduationCap,
                 title: "Academics",
                 text: "NIT Durgapur · B.Tech CSE",
               },
@@ -1127,7 +1022,7 @@ function Achievements() {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: index * 0.07, duration: 0.55 }}
                   whileHover={{ y: -6, scale: 1.01 }}
-                  className="rounded-[1.6rem] border border-white/10 bg-white/5 p-6"
+                  className="rounded-[1.6rem] border border-red-500/10 bg-white/[0.04] p-6"
                 >
                   <Icon className="text-red-300" size={22} />
                   <h3 className="mt-4 font-serif text-3xl italic text-white">{card.title}</h3>
@@ -1143,13 +1038,13 @@ function Achievements() {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.6 }}
             whileHover={{ y: -6 }}
-            className="rounded-[1.8rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-7"
+            className="rounded-[1.8rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.05),rgba(127,29,29,0.035),rgba(255,255,255,0.02))] p-7"
           >
             <p className="text-xs uppercase tracking-[0.24em] text-red-300">Education</p>
             <h3 className="mt-3 font-serif text-4xl italic text-white">Academic Background</h3>
 
             <div className="mt-8 space-y-6">
-              <motion.div whileHover={{ x: 4 }} className="rounded-2xl border border-white/10 bg-black/30 p-5">
+              <motion.div whileHover={{ x: 4 }} className="rounded-2xl border border-red-500/10 bg-black/30 p-5">
                 <p className="text-sm text-slate-400">Aug 2023 – Jun 2027</p>
                 <h4 className="mt-2 text-xl font-semibold text-white">
                   National Institute of Technology, Durgapur
@@ -1157,13 +1052,13 @@ function Achievements() {
                 <p className="mt-2 text-slate-400">B.Tech in Computer Science and Engineering</p>
               </motion.div>
 
-              <motion.div whileHover={{ x: 4 }} className="rounded-2xl border border-white/10 bg-black/30 p-5">
+              <motion.div whileHover={{ x: 4 }} className="rounded-2xl border border-red-500/10 bg-black/30 p-5">
                 <p className="text-sm text-slate-400">Graduated: May 2022</p>
                 <h4 className="mt-2 text-xl font-semibold text-white">Delhi Public School, Durgapur</h4>
                 <p className="mt-2 text-slate-400">School Education</p>
               </motion.div>
 
-              <motion.div whileHover={{ x: 4 }} className="rounded-2xl border border-white/10 bg-black/30 p-5">
+              <motion.div whileHover={{ x: 4 }} className="rounded-2xl border border-red-500/10 bg-black/30 p-5">
                 <h4 className="text-xl font-semibold text-white">Current Direction</h4>
                 <p className="mt-2 leading-7 text-slate-400">
                   Actively building a profile that combines strong SDE fundamentals with applied AI/ML,
@@ -1189,7 +1084,7 @@ function Contact() {
         className="mx-auto max-w-5xl rounded-[2rem] border border-red-500/10 bg-[radial-gradient(circle_at_top,rgba(185,28,28,0.16),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(15,23,42,0.95),transparent_42%),linear-gradient(135deg,rgba(255,255,255,0.055),rgba(127,29,29,0.045),rgba(255,255,255,0.018))] p-8 text-center shadow-[0_0_70px_rgba(127,29,29,0.14)] md:p-14"
       >
         <SectionHeader
-          eyebrow="Contact Ayush Kumar Shaw"
+          eyebrow="Contact"
           title="Let’s build something unforgettable."
           desc="Open to SDE internships, AI/ML roles, GenAI projects, backend systems, and engineering collaborations."
         />
@@ -1253,8 +1148,8 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-black px-5 py-8 text-center text-sm text-slate-500">
-      © {new Date().getFullYear()} Ayush Kumar Shaw · NIT Durgapur CSE · Software Engineering · AI/ML · Agentic RAG · Backend Systems.
+    <footer className="border-t border-red-500/10 bg-black px-5 py-8 text-center text-sm text-slate-500">
+      © {new Date().getFullYear()} Ayush Kumar Shaw · Built with React, Tailwind CSS, and premium motion design.
     </footer>
   );
 }
@@ -1262,7 +1157,6 @@ function Footer() {
 export default function App() {
   return (
     <main className="min-h-screen bg-[#050505] text-white selection:bg-red-600 selection:text-white">
-      <SEO />
       <Navbar />
       <Hero />
       <About />
@@ -1276,6 +1170,12 @@ export default function App() {
     </main>
   );
 }
+
+
+
+
+
+
 
 
 
