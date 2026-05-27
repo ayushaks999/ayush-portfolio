@@ -443,7 +443,7 @@ function AmbientFX() {
   return (
     <div onMouseMove={onMove} className="pointer-events-none fixed inset-0 z-[1]">
       <motion.div style={{ background }} className="absolute inset-0 opacity-100" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.32),transparent_31%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.26),transparent_33%),radial-gradient(circle_at_center,rgba(255,255,255,0.035),transparent_52%),linear-gradient(to_bottom,rgba(255,255,255,0.018),transparent_20%,transparent_80%,rgba(255,255,255,0.018))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.32),transparent_31%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.30),transparent_33%),radial-gradient(circle_at_center,rgba(255,255,255,0.035),transparent_52%),linear-gradient(to_bottom,rgba(255,255,255,0.018),transparent_20%,transparent_80%,rgba(255,255,255,0.018))]" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.026)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.026)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.15] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]" />
 
       <motion.div
@@ -456,7 +456,7 @@ function AmbientFX() {
         aria-hidden
         animate={reduceMotion ? {} : { x: [0, -20, 0], y: [0, 20, 0] }}
         transition={reduceMotion ? {} : { duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-[-8rem] right-[-7rem] h-[28rem] w-[28rem] rounded-full bg-sky-400/21 blur-3xl"
+        className="absolute bottom-[-8rem] right-[-7rem] h-[28rem] w-[28rem] rounded-full bg-sky-400/24 blur-3xl"
       />
       <motion.div
         aria-hidden
@@ -1161,7 +1161,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-red-500/10 bg-black px-5 py-8 text-center text-sm text-slate-500">
-      © {new Date().getFullYear()} Ayush Kumar Shaw · Built with React, Tailwind CSS.
+      © {new Date().getFullYear()} Ayush Kumar Shaw · Built with React, Tailwind CSS, and premium motion design.
     </footer>
   );
 }
