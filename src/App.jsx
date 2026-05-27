@@ -1019,6 +1019,11 @@ function Achievements() {
                 title: "Academics",
                 text: "NIT Durgapur · B.Tech CSE",
               },
+              {
+                icon: Trophy,
+                title: "JEE Top 1%",
+                text: "Secured a position among the top 1% out of 16 lakh+ students in JEE",
+              },
             ].map((card, index) => {
               const Icon = card.icon;
               return (
@@ -1156,7 +1161,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-red-500/10 bg-black px-5 py-8 text-center text-sm text-slate-500">
-      © {new Date().getFullYear()} Ayush Kumar Shaw · Built with React, Tailwind CSS.
+      © {new Date().getFullYear()} Ayush Kumar Shaw · Built with React, Tailwind CSS, and premium motion design.
     </footer>
   );
 }
@@ -1181,3 +1186,4 @@ export default function App() {
     </>
   );
 }
+
