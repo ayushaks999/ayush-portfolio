@@ -59,43 +59,6 @@ function LinkedInIcon({ size = 18, className = "" }) {
   );
 }
 
-function LeetCodeIcon({ size = 18, className = "" }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M16 4 7 13l9 7" />
-      <path d="M8 13h10" />
-    </svg>
-  );
-}
-
-function CodeforcesIcon({ size = 18, className = "" }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <rect x="3" y="10" width="4" height="10" rx="1" />
-      <rect x="10" y="5" width="4" height="15" rx="1" />
-      <rect x="17" y="8" width="4" height="12" rx="1" />
-    </svg>
-  );
-}
-
 const profile = {
   name: "Ayush Kumar Shaw",
   role: "Software Engineer · AI/ML · Agentic RAG",
@@ -115,6 +78,7 @@ const stats = [
   { value: "Knight", label: "LeetCode Level" },
   { value: "1400+", label: "Codeforces Rating" },
   { value: "1000+", label: "DSA Problems Solved" },
+  { value: "Top 1%", label: "JEE among 16+ lakh students" },
 ];
 
 const skillGroups = [
@@ -370,25 +334,25 @@ function Navbar() {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-red-400 via-red-500 to-red-300"
+        className="fixed left-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-red-400 via-fuchsia-400 to-blue-400"
         style={{ scaleX }}
       />
 
-      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-red-500/10 bg-black/60 backdrop-blur-2xl">
+      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-black/55 backdrop-blur-2xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
           <MagneticButton onClick={() => scrollToSection("Home")} className="text-left">
             <p className="font-serif text-xl italic text-white md:text-2xl">{profile.name}</p>
             <p className="text-[10px] uppercase tracking-[0.24em] text-slate-500">Portfolio</p>
           </MagneticButton>
 
-          <div className="hidden items-center gap-2 rounded-full border border-red-500/10 bg-white/[0.04] p-2 md:flex">
+          <div className="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 p-2 md:flex">
             {navItems.map((item) => (
               <motion.button
                 key={item}
                 whileHover={{ y: -2, scale: 1.04 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={() => scrollToSection(item)}
-                className="rounded-full px-4 py-2 text-sm text-slate-300 transition hover:bg-red-500/10 hover:text-white"
+                className="rounded-full px-4 py-2 text-sm text-slate-300 transition hover:bg-white hover:text-black"
               >
                 {item}
               </motion.button>
@@ -397,7 +361,7 @@ function Navbar() {
 
           <motion.button
             whileTap={{ scale: 0.92 }}
-            className="rounded-2xl border border-red-500/10 bg-white/[0.04] p-3 text-white md:hidden"
+            className="rounded-2xl border border-white/10 bg-white/5 p-3 text-white md:hidden"
             onClick={() => setOpen(!open)}
           >
             {open ? <X size={18} /> : <Menu size={18} />}
@@ -411,7 +375,7 @@ function Navbar() {
               animate={{ opacity: 1, y: 0, height: "auto" }}
               exit={{ opacity: 0, y: -12, height: 0 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="overflow-hidden border-t border-red-500/10 bg-black px-5 py-4 md:hidden"
+              className="overflow-hidden border-t border-white/10 bg-black px-5 py-4 md:hidden"
             >
               <div className="flex flex-col gap-3">
                 {navItems.map((item) => (
@@ -421,7 +385,7 @@ function Navbar() {
                       scrollToSection(item);
                       setOpen(false);
                     }}
-                    className="rounded-2xl border border-red-500/10 bg-white/[0.04] px-4 py-3 text-left text-white"
+                    className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-left text-white"
                   >
                     {item}
                   </button>
@@ -441,21 +405,24 @@ function AmbientFX() {
 
   return (
     <div onMouseMove={onMove} className="pointer-events-none fixed inset-0 z-[1]">
-      <motion.div style={{ background }} className="absolute inset-0 opacity-100" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(153,27,27,0.12),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(127,29,29,0.12),transparent_26%),linear-gradient(to_bottom,rgba(255,255,255,0.018),transparent_20%,transparent_80%,rgba(255,255,255,0.018))]" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.16] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]" />
+      <motion.div
+        style={{ background }}
+        className="absolute inset-0 opacity-100"
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(220,38,38,0.14),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.12),transparent_24%),linear-gradient(to_bottom,rgba(255,255,255,0.02),transparent_20%,transparent_80%,rgba(255,255,255,0.02))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.18] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]" />
 
       <motion.div
         aria-hidden
         animate={reduceMotion ? {} : { x: [0, 22, 0], y: [0, -16, 0] }}
         transition={reduceMotion ? {} : { duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-[-6rem] top-[8rem] h-72 w-72 rounded-full bg-red-500/8 blur-3xl"
+        className="absolute left-[-6rem] top-[8rem] h-72 w-72 rounded-full bg-red-500/10 blur-3xl"
       />
       <motion.div
         aria-hidden
         animate={reduceMotion ? {} : { x: [0, -18, 0], y: [0, 18, 0] }}
         transition={reduceMotion ? {} : { duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute right-[-5rem] top-[18rem] h-80 w-80 rounded-full bg-red-950/20 blur-3xl"
+        className="absolute right-[-5rem] top-[18rem] h-80 w-80 rounded-full bg-blue-500/10 blur-3xl"
       />
       <motion.div
         aria-hidden
@@ -485,7 +452,7 @@ function Hero() {
         className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.08fr_0.92fr]"
       >
         <div className="relative">
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 rounded-full border border-red-500/10 bg-white/[0.04] px-4 py-2 text-xs text-slate-300 backdrop-blur-xl">
+          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-slate-300 backdrop-blur-xl">
             <span className="inline-flex h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.8)]" />
             Open to SDE internships, AI/ML roles, backend systems, and GenAI work
           </motion.div>
@@ -512,12 +479,12 @@ function Hero() {
                 variants={itemVariants}
                 whileHover={{ y: -8, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 250, damping: 18 }}
-                className="group relative overflow-hidden rounded-[1.4rem] border border-red-500/10 bg-white/[0.04] p-5 backdrop-blur-xl"
+                className="group relative overflow-hidden rounded-[1.4rem] border border-white/10 bg-white/5 p-5 backdrop-blur-xl"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
                 <p className="font-serif text-3xl italic text-white">{item.value}</p>
                 <p className="mt-2 text-sm text-slate-400">{item.label}</p>
-                <div className="mt-4 h-[1px] w-full bg-gradient-to-r from-red-300/20 to-transparent" />
+                <div className="mt-4 h-[1px] w-full bg-gradient-to-r from-white/10 to-transparent" />
                 <p className="mt-3 text-[11px] uppercase tracking-[0.22em] text-slate-500">Signal {index + 1}</p>
               </motion.div>
             ))}
@@ -527,21 +494,21 @@ function Hero() {
             <MagneticButton
               href={profile.github}
               external
-              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-black transition hover:bg-red-50"
+              className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold text-black transition hover:bg-red-100"
             >
-              <GitHubIcon size={18} />
+              <Code2 size={18} />
               GitHub
             </MagneticButton>
             <MagneticButton
               href={`mailto:${profile.email}`}
-              className="inline-flex items-center gap-2 rounded-full border border-red-500/15 bg-white/[0.04] px-6 py-3 font-semibold text-white transition hover:border-red-300/60 hover:bg-red-500/10"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 font-semibold text-white transition hover:border-red-400"
             >
               <Mail size={18} />
               Contact
             </MagneticButton>
             <MagneticButton
               onClick={() => scrollToSection("projects")}
-              className="inline-flex items-center gap-2 rounded-full border border-red-500/15 bg-black/30 px-6 py-3 font-semibold text-slate-200 transition hover:border-red-300/60 hover:bg-red-500/10"
+              className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-6 py-3 font-semibold text-slate-200 transition hover:border-white/30"
             >
               <ArrowUpRight size={18} />
               View Work
@@ -559,20 +526,20 @@ function Hero() {
           <motion.div
             whileHover={{ y: -10, rotate: -0.4, scale: 1.01 }}
             transition={{ type: "spring", stiffness: 150, damping: 18 }}
-            className="relative overflow-hidden rounded-[2rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.075),rgba(127,29,29,0.04),rgba(255,255,255,0.025))] p-7 shadow-[0_0_60px_rgba(127,29,29,0.14)]"
+            className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.09),rgba(255,255,255,0.03))] p-7 shadow-[0_0_60px_rgba(127,29,29,0.18)]"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(185,28,28,0.14),transparent_31%),radial-gradient(circle_at_bottom_left,rgba(127,29,29,0.10),transparent_34%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(239,68,68,0.16),transparent_30%),radial-gradient(circle_at_bottom_left,rgba(59,130,246,0.10),transparent_32%)]" />
             <div className="relative flex items-center justify-between gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-red-300">Quick Profile</p>
                 <h3 className="mt-4 font-serif text-3xl italic text-white">Ayush Kumar Shaw</h3>
               </div>
-              <div className="rounded-2xl border border-red-500/10 bg-white/[0.04] p-3 text-red-300">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-red-300">
                 <Sparkles size={20} />
               </div>
             </div>
 
-            <div className="relative mt-8 overflow-hidden rounded-[1.6rem] border border-red-500/10 bg-black/35 p-5">
+            <div className="relative mt-8 overflow-hidden rounded-[1.6rem] border border-white/10 bg-black/35 p-5">
               <div className="mb-4 flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-slate-500">
                 <TerminalSquare size={14} />
                 System profile
@@ -586,7 +553,7 @@ function Hero() {
               <motion.div
                 animate={reduceMotion ? {} : { opacity: [0.2, 1, 0.2] }}
                 transition={reduceMotion ? {} : { duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-red-500/8 to-transparent"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-red-500/10 to-transparent"
               />
             </div>
 
@@ -606,7 +573,7 @@ function Hero() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.15 + index * 0.12, duration: 0.55 }}
                   whileHover={{ x: 6 }}
-                  className="rounded-2xl border border-red-500/10 bg-black/30 p-4"
+                  className="rounded-2xl border border-white/10 bg-black/30 p-4"
                 >
                   <p className="text-sm text-slate-400">{label}</p>
                   <p className="mt-1 font-medium text-white">{value}</p>
@@ -673,9 +640,9 @@ function About() {
                 variants={itemVariants}
                 whileHover={{ y: -8, scale: 1.01 }}
                 transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                className="rounded-[1.6rem] border border-red-500/10 bg-white/[0.04] p-6"
+                className="rounded-[1.6rem] border border-white/10 bg-white/5 p-6"
               >
-                <div className="mb-4 inline-flex rounded-2xl border border-red-500/10 bg-black/30 p-3">
+                <div className="mb-4 inline-flex rounded-2xl border border-white/10 bg-black/30 p-3">
                   <Icon className="text-red-300" size={20} />
                 </div>
                 <h3 className="font-serif text-2xl italic text-white">{card.title}</h3>
@@ -715,10 +682,10 @@ function Skills() {
                   variants={itemVariants}
                   whileHover={{ y: -6, scale: 1.01 }}
                   transition={{ type: "spring", stiffness: 220, damping: 18 }}
-                  className="rounded-[1.5rem] border border-red-500/10 bg-white/[0.04] p-5"
+                  className="rounded-[1.5rem] border border-white/10 bg-white/5 p-5"
                 >
                   <div className="mb-4 flex items-center gap-3">
-                    <div className="rounded-2xl border border-red-500/10 bg-black/30 p-3">
+                    <div className="rounded-2xl border border-white/10 bg-black/30 p-3">
                       <Icon className="text-red-300" size={18} />
                     </div>
                     <h3 className="font-serif text-2xl italic text-white">{group.title}</h3>
@@ -729,7 +696,7 @@ function Skills() {
                       <motion.span
                         key={item}
                         whileHover={{ y: -2, scale: 1.04 }}
-                        className="rounded-full border border-red-500/10 bg-black/40 px-3 py-1.5 text-sm text-slate-300"
+                        className="rounded-full border border-white/10 bg-black/40 px-3 py-1.5 text-sm text-slate-300"
                       >
                         {item}
                       </motion.span>
@@ -745,19 +712,19 @@ function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.7 }}
-            className="rounded-[1.8rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.04),rgba(127,29,29,0.03),rgba(255,255,255,0.015))] p-6"
+            className="rounded-[1.8rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02))] p-6"
           >
             <div className="mb-5 flex items-center justify-between gap-3">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-red-300">Skill Map</p>
                 <h3 className="mt-2 font-serif text-3xl italic text-white">Technology Landscape</h3>
               </div>
-              <div className="rounded-2xl border border-red-500/10 bg-white/[0.04] p-3 text-red-300">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-red-300">
                 <Orbit size={18} />
               </div>
             </div>
 
-            <div className="relative hidden h-[560px] overflow-hidden rounded-[1.5rem] border border-red-500/10 bg-black/30 lg:block">
+            <div className="relative hidden h-[560px] overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30 lg:block">
               <motion.div
                 aria-hidden
                 animate={{ rotate: [0, 360] }}
@@ -774,9 +741,9 @@ function Skills() {
                 aria-hidden
                 animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500/12 blur-2xl"
+                className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500/15 blur-2xl"
               />
-              <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-red-500/10 bg-black/55 shadow-[0_0_60px_rgba(127,29,29,0.18)]">
+              <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/55 shadow-[0_0_60px_rgba(239,68,68,0.22)]">
                 <Layers3 className="text-red-300" size={30} />
               </div>
               {skillCloud.map((item, index) => (
@@ -787,7 +754,7 @@ function Skills() {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: index * 0.05, duration: 0.55 }}
                   whileHover={{ scale: 1.12, rotate: -1 }}
-                  className={`absolute rounded-full border border-red-500/10 bg-white/[0.04] px-3 py-1.5 font-semibold text-white/90 ${item.size} shadow-[0_0_16px_rgba(255,255,255,0.06)] hover:text-red-300`}
+                  className={`absolute rounded-full border border-white/10 bg-white/6 px-3 py-1.5 font-semibold text-white/90 ${item.size} shadow-[0_0_16px_rgba(255,255,255,0.08)] hover:text-red-300`}
                   style={{ top: item.top, left: item.left }}
                 >
                   {item.label}
@@ -800,7 +767,7 @@ function Skills() {
                 <motion.span
                   key={item.label}
                   whileHover={{ y: -3, scale: 1.04 }}
-                  className="rounded-full border border-red-500/10 bg-black/40 px-4 py-2 text-sm text-slate-300"
+                  className="rounded-full border border-white/10 bg-black/40 px-4 py-2 text-sm text-slate-300"
                 >
                   {item.label}
                 </motion.span>
@@ -880,8 +847,8 @@ function Projects() {
               onClick={() => setActiveFilter(filter)}
               className={`rounded-full border px-4 py-2 text-sm transition ${
                 activeFilter === filter
-                  ? "border-red-300/60 bg-red-500/12 text-white"
-                  : "border-red-500/10 bg-white/[0.04] text-slate-300 hover:border-red-300/60 hover:bg-red-500/10"
+                  ? "border-red-400 bg-red-500/15 text-white"
+                  : "border-white/10 bg-white/5 text-slate-300 hover:border-red-400"
               }`}
             >
               {filter}
@@ -900,7 +867,7 @@ function Projects() {
                   exit={{ opacity: 0, y: 18, scale: 0.98 }}
                   transition={{ duration: 0.45, delay: index * 0.03 }}
                   whileHover={{ y: -8 }}
-                  className="group overflow-hidden rounded-[1.7rem] border border-red-500/10 bg-white/[0.04] transition hover:border-red-300/50"
+                  className="group overflow-hidden rounded-[1.7rem] border border-white/10 bg-white/5 transition hover:border-red-400/50"
                 >
                   <div className="relative overflow-hidden">
                     <motion.img
@@ -911,18 +878,18 @@ function Projects() {
                       transition={{ duration: 0.7, ease: "easeOut" }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/25 to-transparent" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,transparent_0%,rgba(255,255,255,0.08)_120%)] opacity-0 transition duration-300 group-hover:opacity-100" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,transparent_0%,rgba(255,255,255,0.10)_120%)] opacity-0 transition duration-300 group-hover:opacity-100" />
                     <motion.p
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="absolute bottom-4 left-4 rounded-full border border-red-500/10 bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-slate-300"
+                      className="absolute bottom-4 left-4 rounded-full border border-white/10 bg-black/60 px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-slate-300"
                     >
                       {project.category}
                     </motion.p>
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileHover={{ opacity: 1, scale: 1 }}
-                      className="absolute right-4 top-4 rounded-full border border-red-500/10 bg-black/55 p-3 text-red-300 backdrop-blur-xl"
+                      className="absolute right-4 top-4 rounded-full border border-white/10 bg-black/55 p-3 text-red-300 backdrop-blur-xl"
                     >
                       <Zap size={16} />
                     </motion.div>
@@ -937,7 +904,7 @@ function Projects() {
                         <motion.span
                           key={item}
                           whileHover={{ y: -2, scale: 1.04 }}
-                          className="rounded-lg border border-red-500/10 bg-black/40 px-2.5 py-1 text-xs text-slate-300"
+                          className="rounded-lg border border-white/10 bg-black/40 px-2.5 py-1 text-xs text-slate-300"
                         >
                           {item}
                         </motion.span>
@@ -948,9 +915,9 @@ function Projects() {
                       <MagneticButton
                         href={project.repo}
                         external
-                        className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-semibold text-black transition hover:bg-red-50"
+                        className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 font-semibold text-black transition hover:bg-red-100"
                       >
-                        <GitHubIcon size={16} />
+                        <Code2 size={16} />
                         View Code
                       </MagneticButton>
                       <a
@@ -1009,6 +976,11 @@ function Achievements() {
               },
               {
                 icon: GraduationCap,
+                title: "JEE Top 1%",
+                text: "Ranked in the top 1% among 16+ lakh JEE aspirants",
+              },
+              {
+                icon: GraduationCap,
                 title: "Academics",
                 text: "NIT Durgapur · B.Tech CSE",
               },
@@ -1022,7 +994,7 @@ function Achievements() {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: index * 0.07, duration: 0.55 }}
                   whileHover={{ y: -6, scale: 1.01 }}
-                  className="rounded-[1.6rem] border border-red-500/10 bg-white/[0.04] p-6"
+                  className="rounded-[1.6rem] border border-white/10 bg-white/5 p-6"
                 >
                   <Icon className="text-red-300" size={22} />
                   <h3 className="mt-4 font-serif text-3xl italic text-white">{card.title}</h3>
@@ -1038,13 +1010,13 @@ function Achievements() {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.6 }}
             whileHover={{ y: -6 }}
-            className="rounded-[1.8rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.05),rgba(127,29,29,0.035),rgba(255,255,255,0.02))] p-7"
+            className="rounded-[1.8rem] border border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02))] p-7"
           >
             <p className="text-xs uppercase tracking-[0.24em] text-red-300">Education</p>
             <h3 className="mt-3 font-serif text-4xl italic text-white">Academic Background</h3>
 
             <div className="mt-8 space-y-6">
-              <motion.div whileHover={{ x: 4 }} className="rounded-2xl border border-red-500/10 bg-black/30 p-5">
+              <motion.div whileHover={{ x: 4 }} className="rounded-2xl border border-white/10 bg-black/30 p-5">
                 <p className="text-sm text-slate-400">Aug 2023 – Jun 2027</p>
                 <h4 className="mt-2 text-xl font-semibold text-white">
                   National Institute of Technology, Durgapur
@@ -1052,13 +1024,13 @@ function Achievements() {
                 <p className="mt-2 text-slate-400">B.Tech in Computer Science and Engineering</p>
               </motion.div>
 
-              <motion.div whileHover={{ x: 4 }} className="rounded-2xl border border-red-500/10 bg-black/30 p-5">
+              <motion.div whileHover={{ x: 4 }} className="rounded-2xl border border-white/10 bg-black/30 p-5">
                 <p className="text-sm text-slate-400">Graduated: May 2022</p>
                 <h4 className="mt-2 text-xl font-semibold text-white">Delhi Public School, Durgapur</h4>
                 <p className="mt-2 text-slate-400">School Education</p>
               </motion.div>
 
-              <motion.div whileHover={{ x: 4 }} className="rounded-2xl border border-red-500/10 bg-black/30 p-5">
+              <motion.div whileHover={{ x: 4 }} className="rounded-2xl border border-white/10 bg-black/30 p-5">
                 <h4 className="text-xl font-semibold text-white">Current Direction</h4>
                 <p className="mt-2 leading-7 text-slate-400">
                   Actively building a profile that combines strong SDE fundamentals with applied AI/ML,
@@ -1070,6 +1042,43 @@ function Achievements() {
         </div>
       </div>
     </section>
+  );
+}
+
+function LeetCodeIcon({ size = 18, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M16 4 7 13l9 7" />
+      <path d="M8 13h10" />
+    </svg>
+  );
+}
+
+function CodeforcesIcon({ size = 18, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect x="3" y="10" width="4" height="10" rx="1" />
+      <rect x="10" y="5" width="4" height="15" rx="1" />
+      <rect x="17" y="8" width="4" height="12" rx="1" />
+    </svg>
   );
 }
 
@@ -1148,7 +1157,7 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="border-t border-red-500/10 bg-black px-5 py-8 text-center text-sm text-slate-500">
+    <footer className="border-t border-white/10 bg-black px-5 py-8 text-center text-sm text-slate-500">
       © {new Date().getFullYear()} Ayush Kumar Shaw · Built with React, Tailwind CSS, and premium motion design.
     </footer>
   );
@@ -1170,3 +1179,37 @@ export default function App() {
     </main>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
