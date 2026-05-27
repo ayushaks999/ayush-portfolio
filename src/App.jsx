@@ -1,4 +1,4 @@
-import React, { useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import {
   AnimatePresence,
   motion,
@@ -28,6 +28,114 @@ import {
   Orbit,
   Zap,
 } from "lucide-react";
+
+const siteUrl = "https://ayushshaw-nitdgp.vercel.app/";
+
+const profile = {
+  name: "Ayush Kumar Shaw",
+  role: "Software Engineer · AI/ML · Agentic RAG",
+  subtitle:
+    "Computer Science undergraduate at NIT Durgapur building production-grade backend systems, GenAI applications, RAG pipelines, and applied ML solutions.",
+  email: "ayushaks099@gmail.com",
+  github: "https://github.com/ayushaks999",
+  linkedin: "https://linkedin.com/in/ayush-shaw-231b86325",
+  leetcode: "https://leetcode.com/u/ayushaks9999/",
+  codeforces: "https://codeforces.com/profile/ayushaks999",
+};
+
+const seo = {
+  title: "Ayush Kumar Shaw | NIT Durgapur CSE | Software Engineer | AI/ML",
+  description:
+    "Official portfolio of Ayush Kumar Shaw, B.Tech CSE student at NIT Durgapur focused on Software Engineering, AI/ML, Agentic RAG, Backend Systems, GenAI, LangChain, RAG pipelines, and competitive programming.",
+  keywords:
+    "Ayush Kumar Shaw, Ayush Shaw, Ayush Shaw NIT Durgapur, Ayush Shaw NIT DGP, Ayush Kumar Shaw NIT Durgapur, NIT Durgapur CSE, NIT DGP CSE, Software Engineer, AI ML Engineer, Backend Developer, GenAI Developer, Agentic RAG, RAG, LangChain, LangGraph, AutoGen, LeetCode Knight, Codeforces Specialist, ayushaks999, ayushaks9999",
+};
+
+function SEO() {
+  useEffect(() => {
+    document.title = seo.title;
+
+    const setMeta = (selector, attr, value) => {
+      let tag = document.head.querySelector(selector);
+      if (!tag) {
+        tag = document.createElement("meta");
+        const match = selector.match(/\[(name|property)="(.+?)"\]/);
+        if (match) tag.setAttribute(match[1], match[2]);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute(attr, value);
+    };
+
+    const setLink = (rel, href) => {
+      let tag = document.head.querySelector(`link[rel="${rel}"]`);
+      if (!tag) {
+        tag = document.createElement("link");
+        tag.setAttribute("rel", rel);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("href", href);
+    };
+
+    setMeta('meta[name="description"]', "content", seo.description);
+    setMeta('meta[name="keywords"]', "content", seo.keywords);
+    setMeta('meta[name="author"]', "content", profile.name);
+    setMeta('meta[name="robots"]', "content", "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1");
+    setMeta('meta[name="googlebot"]', "content", "index, follow");
+    setMeta('meta[property="og:title"]', "content", seo.title);
+    setMeta('meta[property="og:description"]', "content", seo.description);
+    setMeta('meta[property="og:type"]', "content", "website");
+    setMeta('meta[property="og:url"]', "content", siteUrl);
+    setMeta('meta[property="og:site_name"]', "content", "Ayush Kumar Shaw Portfolio");
+    setMeta('meta[property="og:locale"]', "content", "en_IN");
+    setMeta('meta[name="twitter:card"]', "content", "summary_large_image");
+    setMeta('meta[name="twitter:title"]', "content", seo.title);
+    setMeta('meta[name="twitter:description"]', "content", seo.description);
+    setLink("canonical", siteUrl);
+
+    let script = document.head.querySelector('script[type="application/ld+json"][data-seo="person"]');
+    if (!script) {
+      script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.setAttribute("data-seo", "person");
+      document.head.appendChild(script);
+    }
+
+    script.textContent = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Ayush Kumar Shaw",
+      alternateName: ["Ayush Shaw", "Ayush K Shaw", "ayushaks999"],
+      url: siteUrl,
+      email: profile.email,
+      jobTitle: "Software Engineer, AI/ML Developer, Backend Developer",
+      description: seo.description,
+      alumniOf: {
+        "@type": "CollegeOrUniversity",
+        name: "National Institute of Technology, Durgapur",
+        alternateName: ["NIT Durgapur", "NIT DGP"],
+      },
+      knowsAbout: [
+        "Software Engineering",
+        "AI/ML",
+        "Backend Development",
+        "Agentic RAG",
+        "Retrieval Augmented Generation",
+        "LangChain",
+        "LangGraph",
+        "AutoGen",
+        "FastAPI",
+        "Flask",
+        "Docker",
+        "Azure",
+        "Competitive Programming",
+        "Data Structures and Algorithms",
+      ],
+      sameAs: [profile.github, profile.linkedin, profile.leetcode, profile.codeforces],
+    });
+  }, []);
+
+  return null;
+}
 
 function GitHubIcon({ size = 18, className = "" }) {
   return (
@@ -59,17 +167,42 @@ function LinkedInIcon({ size = 18, className = "" }) {
   );
 }
 
-const profile = {
-  name: "Ayush Kumar Shaw",
-  role: "Software Engineer · AI/ML · Agentic RAG",
-  subtitle:
-    "Computer Science undergraduate at NIT Durgapur building production-grade backend systems, GenAI applications, RAG pipelines, and applied ML solutions.",
-  email: "ayushaks099@gmail.com",
-  github: "https://github.com/ayushaks999",
-  linkedin: "https://linkedin.com/in/ayush-shaw-231b86325",
-  leetcode: "https://leetcode.com/u/ayushaks9999/",
-  codeforces: "https://codeforces.com/profile/ayushaks999",
-};
+function LeetCodeIcon({ size = 18, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M16 4 7 13l9 7" />
+      <path d="M8 13h10" />
+    </svg>
+  );
+}
+
+function CodeforcesIcon({ size = 18, className = "" }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect x="3" y="10" width="4" height="10" rx="1" />
+      <rect x="10" y="5" width="4" height="15" rx="1" />
+      <rect x="17" y="8" width="4" height="12" rx="1" />
+    </svg>
+  );
+}
 
 const navItems = ["Home", "About", "Skills", "Projects", "Achievements", "Contact"];
 
@@ -338,7 +471,7 @@ function Navbar() {
         style={{ scaleX }}
       />
 
-      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-black/55 backdrop-blur-2xl">
+      <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-black/55 backdrop-blur-2xl" aria-label="Main navigation">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4">
           <MagneticButton onClick={() => scrollToSection("Home")} className="text-left">
             <p className="font-serif text-xl italic text-white md:text-2xl">{profile.name}</p>
@@ -363,6 +496,7 @@ function Navbar() {
             whileTap={{ scale: 0.92 }}
             className="rounded-2xl border border-white/10 bg-white/5 p-3 text-white md:hidden"
             onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
           >
             {open ? <X size={18} /> : <Menu size={18} />}
           </motion.button>
@@ -405,10 +539,7 @@ function AmbientFX() {
 
   return (
     <div onMouseMove={onMove} className="pointer-events-none fixed inset-0 z-[1]">
-      <motion.div
-        style={{ background }}
-        className="absolute inset-0 opacity-100"
-      />
+      <motion.div style={{ background }} className="absolute inset-0 opacity-100" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(220,38,38,0.14),transparent_26%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.12),transparent_24%),linear-gradient(to_bottom,rgba(255,255,255,0.02),transparent_20%,transparent_80%,rgba(255,255,255,0.02))]" />
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.18] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]" />
 
@@ -458,14 +589,14 @@ function Hero() {
           </motion.div>
 
           <motion.p variants={itemVariants} className="mt-6 text-xs uppercase tracking-[0.28em] text-red-300">
-            Software Engineering · AI/ML
+            Ayush Kumar Shaw · NIT Durgapur CSE · Software Engineering · AI/ML
           </motion.p>
 
           <motion.h1
             variants={itemVariants}
             className="mt-5 max-w-3xl font-serif text-5xl italic leading-[0.92] text-white md:text-7xl"
           >
-            Building products that feel intelligent.
+            Ayush Kumar Shaw — Software Engineer building intelligent products.
           </motion.h1>
 
           <motion.p variants={itemVariants} className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
@@ -532,7 +663,7 @@ function Hero() {
             <div className="relative flex items-center justify-between gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-red-300">Quick Profile</p>
-                <h3 className="mt-4 font-serif text-3xl italic text-white">Ayush Kumar Shaw</h3>
+                <h2 className="mt-4 font-serif text-3xl italic text-white">Ayush Kumar Shaw</h2>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-3 text-red-300">
                 <Sparkles size={20} />
@@ -545,6 +676,8 @@ function Hero() {
                 System profile
               </div>
               <div className="space-y-2 font-mono text-[12px] leading-7 text-slate-300">
+                <p><span className="text-emerald-300">&gt;</span> name: Ayush Kumar Shaw</p>
+                <p><span className="text-emerald-300">&gt;</span> education: NIT Durgapur B.Tech CSE 2023–2027</p>
                 <p><span className="text-emerald-300">&gt;</span> role: {profile.role}</p>
                 <p><span className="text-emerald-300">&gt;</span> stack: backend · GenAI · RAG · ML</p>
                 <p><span className="text-emerald-300">&gt;</span> focus: scalable, production-grade products</p>
@@ -558,7 +691,7 @@ function Hero() {
             </div>
 
             <p className="relative mt-6 text-base leading-7 text-slate-400">
-              B.Tech CSE student at NIT Durgapur (2023–2027), focused on backend-heavy systems, Agentic RAG, applied ML, and strong competitive programming fundamentals.
+              B.Tech CSE student at NIT Durgapur, also searched as NIT DGP, focused on backend-heavy systems, Agentic RAG, applied ML, and strong competitive programming fundamentals.
             </p>
 
             <div className="relative mt-8 space-y-4">
@@ -601,9 +734,9 @@ function About() {
     <section id="about" className="bg-[#050505] px-5 py-24 text-white">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="About"
+          eyebrow="About Ayush Kumar Shaw"
           title="Engineer first. AI-powered when it matters."
-          desc="I focus on building real systems — clean APIs, reliable retrieval pipelines, scalable data workflows, practical ML systems, and production-oriented project architecture."
+          desc="I am Ayush Kumar Shaw, a B.Tech Computer Science and Engineering student at NIT Durgapur. I focus on building real systems — clean APIs, reliable retrieval pipelines, scalable data workflows, practical ML systems, and production-oriented project architecture."
         />
 
         <motion.div
@@ -663,7 +796,7 @@ function Skills() {
         <SectionHeader
           eyebrow="Skills"
           title="Strong foundations across engineering and AI."
-          desc="Structured core skills on the left, with a visually rich skill universe on the right — built to feel alive and high-end."
+          desc="Ayush Kumar Shaw works across software engineering, AI/ML, backend systems, Agentic RAG, LangChain, vector databases, and competitive programming."
         />
 
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
@@ -827,9 +960,9 @@ function Projects() {
     <section id="projects" className="bg-[#050505] px-5 py-24 text-white">
       <div className="mx-auto max-w-7xl">
         <SectionHeader
-          eyebrow="Projects"
+          eyebrow="Projects by Ayush Kumar Shaw"
           title="Selected engineering work."
-          desc="A focused collection of backend systems, GenAI applications, RAG platforms, desktop AI products, and ML pipelines."
+          desc="A focused collection of backend systems, GenAI applications, RAG platforms, desktop AI products, and ML pipelines built by Ayush Kumar Shaw."
         />
 
         <motion.div
@@ -872,7 +1005,7 @@ function Projects() {
                   <div className="relative overflow-hidden">
                     <motion.img
                       src={project.image}
-                      alt={project.title}
+                      alt={`${project.title} by Ayush Kumar Shaw`}
                       className="h-72 w-full object-cover"
                       whileHover={{ scale: 1.08 }}
                       transition={{ duration: 0.7, ease: "easeOut" }}
@@ -947,7 +1080,7 @@ function Achievements() {
         <SectionHeader
           eyebrow="Achievements"
           title="Competitive programming and academics."
-          desc="Strong algorithmic foundation combined with practical software engineering and AI project work."
+          desc="Ayush Kumar Shaw combines strong algorithmic foundations with practical software engineering and AI project work at NIT Durgapur."
         />
 
         <div className="grid gap-8 lg:grid-cols-[1fr_0.9fr]">
@@ -1045,43 +1178,6 @@ function Achievements() {
   );
 }
 
-function LeetCodeIcon({ size = 18, className = "" }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-      aria-hidden="true"
-    >
-      <path d="M16 4 7 13l9 7" />
-      <path d="M8 13h10" />
-    </svg>
-  );
-}
-
-function CodeforcesIcon({ size = 18, className = "" }) {
-  return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden="true"
-    >
-      <rect x="3" y="10" width="4" height="10" rx="1" />
-      <rect x="10" y="5" width="4" height="15" rx="1" />
-      <rect x="17" y="8" width="4" height="12" rx="1" />
-    </svg>
-  );
-}
-
 function Contact() {
   return (
     <section id="contact" className="bg-[#050505] px-5 py-24 text-white">
@@ -1093,7 +1189,7 @@ function Contact() {
         className="mx-auto max-w-5xl rounded-[2rem] border border-red-500/10 bg-[radial-gradient(circle_at_top,rgba(185,28,28,0.16),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(15,23,42,0.95),transparent_42%),linear-gradient(135deg,rgba(255,255,255,0.055),rgba(127,29,29,0.045),rgba(255,255,255,0.018))] p-8 text-center shadow-[0_0_70px_rgba(127,29,29,0.14)] md:p-14"
       >
         <SectionHeader
-          eyebrow="Contact"
+          eyebrow="Contact Ayush Kumar Shaw"
           title="Let’s build something unforgettable."
           desc="Open to SDE internships, AI/ML roles, GenAI projects, backend systems, and engineering collaborations."
         />
@@ -1158,7 +1254,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-white/10 bg-black px-5 py-8 text-center text-sm text-slate-500">
-      © {new Date().getFullYear()} Ayush Kumar Shaw · Built with React, Tailwind CSS, and premium motion design.
+      © {new Date().getFullYear()} Ayush Kumar Shaw · NIT Durgapur CSE · Software Engineering · AI/ML · Agentic RAG · Backend Systems.
     </footer>
   );
 }
@@ -1166,6 +1262,7 @@ function Footer() {
 export default function App() {
   return (
     <main className="min-h-screen bg-[#050505] text-white selection:bg-red-600 selection:text-white">
+      <SEO />
       <Navbar />
       <Hero />
       <About />
@@ -1179,37 +1276,6 @@ export default function App() {
     </main>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
