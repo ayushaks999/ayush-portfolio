@@ -312,7 +312,7 @@ function useMouseGlow() {
     y.set(e.clientY);
   }
 
-  const background = useMotionTemplate`radial-gradient(600px circle at ${x}px ${y}px, rgba(239,68,68,0.12), transparent 40%)`;
+  const background = useMotionTemplate`radial-gradient(620px circle at ${x}px ${y}px, rgba(239,68,68,0.10), transparent 42%)`;
   return { onMove, background };
 }
 
@@ -371,7 +371,7 @@ function Navbar() {
   return (
     <>
       <motion.div
-        className="fixed left-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-red-400 via-red-500 to-red-300"
+        className="fixed left-0 top-0 z-[60] h-[2px] origin-left bg-gradient-to-r from-red-400 via-red-500 to-sky-300"
         style={{ scaleX }}
       />
 
@@ -443,20 +443,26 @@ function AmbientFX() {
   return (
     <div onMouseMove={onMove} className="pointer-events-none fixed inset-0 z-[1]">
       <motion.div style={{ background }} className="absolute inset-0 opacity-100" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(153,27,27,0.12),transparent_28%),radial-gradient(circle_at_bottom_right,rgba(127,29,29,0.12),transparent_26%),linear-gradient(to_bottom,rgba(255,255,255,0.018),transparent_20%,transparent_80%,rgba(255,255,255,0.018))]" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.16] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.26),transparent_31%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.20),transparent_33%),radial-gradient(circle_at_center,rgba(255,255,255,0.035),transparent_52%),linear-gradient(to_bottom,rgba(255,255,255,0.018),transparent_20%,transparent_80%,rgba(255,255,255,0.018))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.026)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.026)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.15] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]" />
 
       <motion.div
         aria-hidden
-        animate={reduceMotion ? {} : { x: [0, 22, 0], y: [0, -16, 0] }}
+        animate={reduceMotion ? {} : { x: [0, 24, 0], y: [0, -18, 0] }}
         transition={reduceMotion ? {} : { duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-[-6rem] top-[8rem] h-72 w-72 rounded-full bg-red-500/8 blur-3xl"
+        className="absolute left-[-7rem] top-[5rem] h-96 w-96 rounded-full bg-red-500/18 blur-3xl"
       />
       <motion.div
         aria-hidden
-        animate={reduceMotion ? {} : { x: [0, -18, 0], y: [0, 18, 0] }}
+        animate={reduceMotion ? {} : { x: [0, -20, 0], y: [0, 20, 0] }}
         transition={reduceMotion ? {} : { duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute right-[-5rem] top-[18rem] h-80 w-80 rounded-full bg-red-950/20 blur-3xl"
+        className="absolute bottom-[-8rem] right-[-7rem] h-[28rem] w-[28rem] rounded-full bg-sky-400/16 blur-3xl"
+      />
+      <motion.div
+        aria-hidden
+        animate={reduceMotion ? {} : { opacity: [0.35, 0.8, 0.35], scale: [1, 1.08, 1] }}
+        transition={reduceMotion ? {} : { duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-[8%] right-[8%] h-64 w-64 rounded-full bg-cyan-300/8 blur-3xl"
       />
       <motion.div
         aria-hidden
@@ -515,10 +521,10 @@ function Hero() {
                 transition={{ type: "spring", stiffness: 250, damping: 18 }}
                 className="group relative overflow-hidden rounded-[1.4rem] border border-red-500/10 bg-white/[0.04] p-5 backdrop-blur-xl"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-transparent opacity-0 transition group-hover:opacity-100" />
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/10 via-transparent to-sky-400/5 opacity-0 transition group-hover:opacity-100" />
                 <p className="font-serif text-3xl italic text-white">{item.value}</p>
                 <p className="mt-2 text-sm text-slate-400">{item.label}</p>
-                <div className="mt-4 h-[1px] w-full bg-gradient-to-r from-red-300/20 to-transparent" />
+                <div className="mt-4 h-[1px] w-full bg-gradient-to-r from-red-300/20 via-white/5 to-sky-300/15" />
                 <p className="mt-3 text-[11px] uppercase tracking-[0.22em] text-slate-500">Signal {index + 1}</p>
               </motion.div>
             ))}
@@ -542,7 +548,7 @@ function Hero() {
             </MagneticButton>
             <MagneticButton
               onClick={() => scrollToSection("projects")}
-              className="inline-flex items-center gap-2 rounded-full border border-red-500/15 bg-black/30 px-6 py-3 font-semibold text-slate-200 transition hover:border-red-300/60 hover:bg-red-500/10"
+              className="inline-flex items-center gap-2 rounded-full border border-sky-400/15 bg-black/30 px-6 py-3 font-semibold text-slate-200 transition hover:border-sky-300/60 hover:bg-sky-500/10"
             >
               <ArrowUpRight size={18} />
               View Work
@@ -560,15 +566,15 @@ function Hero() {
           <motion.div
             whileHover={{ y: -10, rotate: -0.4, scale: 1.01 }}
             transition={{ type: "spring", stiffness: 150, damping: 18 }}
-            className="relative overflow-hidden rounded-[2rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.075),rgba(127,29,29,0.04),rgba(255,255,255,0.025))] p-7 shadow-[0_0_60px_rgba(127,29,29,0.14)]"
+            className="relative overflow-hidden rounded-[2rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.075),rgba(127,29,29,0.045),rgba(56,189,248,0.035))] p-7 shadow-[0_0_70px_rgba(56,189,248,0.10)]"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(185,28,28,0.14),transparent_31%),radial-gradient(circle_at_bottom_left,rgba(127,29,29,0.10),transparent_34%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.18),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.14),transparent_36%)]" />
             <div className="relative flex items-center justify-between gap-4">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-red-300">Quick Profile</p>
                 <h3 className="mt-4 font-serif text-3xl italic text-white">Ayush Kumar Shaw</h3>
               </div>
-              <div className="rounded-2xl border border-red-500/10 bg-white/[0.04] p-3 text-red-300">
+              <div className="rounded-2xl border border-sky-400/10 bg-white/[0.04] p-3 text-sky-300">
                 <Sparkles size={20} />
               </div>
             </div>
@@ -587,7 +593,7 @@ function Hero() {
               <motion.div
                 animate={reduceMotion ? {} : { opacity: [0.2, 1, 0.2] }}
                 transition={reduceMotion ? {} : { duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-                className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-red-500/8 to-transparent"
+                className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-sky-500/8 to-transparent"
               />
             </div>
 
@@ -623,7 +629,7 @@ function Hero() {
         transition={reduceMotion ? {} : { duration: 3.2, repeat: Infinity, ease: "easeInOut" }}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-center"
       >
-        <div className="mx-auto mb-2 h-10 w-[1px] bg-gradient-to-b from-red-300/0 via-red-300 to-red-300/0" />
+        <div className="mx-auto mb-2 h-10 w-[1px] bg-gradient-to-b from-red-300/0 via-red-300 to-sky-300/0" />
         <p className="text-[10px] uppercase tracking-[0.3em] text-slate-500">Scroll</p>
       </motion.div>
     </section>
@@ -746,14 +752,14 @@ function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.7 }}
-            className="rounded-[1.8rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.04),rgba(127,29,29,0.03),rgba(255,255,255,0.015))] p-6"
+            className="rounded-[1.8rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.04),rgba(127,29,29,0.035),rgba(56,189,248,0.025))] p-6"
           >
             <div className="mb-5 flex items-center justify-between gap-3">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-red-300">Skill Map</p>
                 <h3 className="mt-2 font-serif text-3xl italic text-white">Technology Landscape</h3>
               </div>
-              <div className="rounded-2xl border border-red-500/10 bg-white/[0.04] p-3 text-red-300">
+              <div className="rounded-2xl border border-sky-400/10 bg-white/[0.04] p-3 text-sky-300">
                 <Orbit size={18} />
               </div>
             </div>
@@ -769,15 +775,15 @@ function Skills() {
                 aria-hidden
                 animate={{ rotate: [360, 0] }}
                 transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
-                className="absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-red-300/10"
+                className="absolute left-1/2 top-1/2 h-[520px] w-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-sky-300/10"
               />
               <motion.div
                 aria-hidden
                 animate={{ scale: [1, 1.05, 1], opacity: [0.8, 1, 0.8] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red-500/12 blur-2xl"
+                className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-500/12 blur-2xl"
               />
-              <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-red-500/10 bg-black/55 shadow-[0_0_60px_rgba(127,29,29,0.18)]">
+              <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-red-500/10 bg-black/55 shadow-[0_0_60px_rgba(56,189,248,0.16)]">
                 <Layers3 className="text-red-300" size={30} />
               </div>
               {skillCloud.map((item, index) => (
@@ -788,7 +794,7 @@ function Skills() {
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ delay: index * 0.05, duration: 0.55 }}
                   whileHover={{ scale: 1.12, rotate: -1 }}
-                  className={`absolute rounded-full border border-red-500/10 bg-white/[0.04] px-3 py-1.5 font-semibold text-white/90 ${item.size} shadow-[0_0_16px_rgba(255,255,255,0.06)] hover:text-red-300`}
+                  className={`absolute rounded-full border border-red-500/10 bg-white/[0.04] px-3 py-1.5 font-semibold text-white/90 ${item.size} shadow-[0_0_16px_rgba(255,255,255,0.06)] hover:text-sky-300`}
                   style={{ top: item.top, left: item.left }}
                 >
                   {item.label}
@@ -882,7 +888,7 @@ function Projects() {
               className={`rounded-full border px-4 py-2 text-sm transition ${
                 activeFilter === filter
                   ? "border-red-300/60 bg-red-500/12 text-white"
-                  : "border-red-500/10 bg-white/[0.04] text-slate-300 hover:border-red-300/60 hover:bg-red-500/10"
+                  : "border-red-500/10 bg-white/[0.04] text-slate-300 hover:border-sky-300/50 hover:bg-sky-500/10"
               }`}
             >
               {filter}
@@ -901,7 +907,7 @@ function Projects() {
                   exit={{ opacity: 0, y: 18, scale: 0.98 }}
                   transition={{ duration: 0.45, delay: index * 0.03 }}
                   whileHover={{ y: -8 }}
-                  className="group overflow-hidden rounded-[1.7rem] border border-red-500/10 bg-white/[0.04] transition hover:border-red-300/50"
+                  className="group overflow-hidden rounded-[1.7rem] border border-red-500/10 bg-white/[0.04] transition hover:border-sky-300/45"
                 >
                   <div className="relative overflow-hidden">
                     <motion.img
@@ -912,7 +918,7 @@ function Projects() {
                       transition={{ duration: 0.7, ease: "easeOut" }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/25 to-transparent" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,transparent_0%,rgba(255,255,255,0.08)_120%)] opacity-0 transition duration-300 group-hover:opacity-100" />
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.18),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.14),transparent_36%)] opacity-0 transition duration-300 group-hover:opacity-100" />
                     <motion.p
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -923,7 +929,7 @@ function Projects() {
                     <motion.div
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileHover={{ opacity: 1, scale: 1 }}
-                      className="absolute right-4 top-4 rounded-full border border-red-500/10 bg-black/55 p-3 text-red-300 backdrop-blur-xl"
+                      className="absolute right-4 top-4 rounded-full border border-sky-400/10 bg-black/55 p-3 text-sky-300 backdrop-blur-xl"
                     >
                       <Zap size={16} />
                     </motion.div>
@@ -958,7 +964,7 @@ function Projects() {
                         href={project.repo}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 text-sm text-slate-300 transition hover:text-red-300"
+                        className="inline-flex items-center gap-2 text-sm text-slate-300 transition hover:text-sky-300"
                       >
                         Open Repository <ExternalLink size={16} />
                       </a>
@@ -1039,7 +1045,7 @@ function Achievements() {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.6 }}
             whileHover={{ y: -6 }}
-            className="rounded-[1.8rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.05),rgba(127,29,29,0.035),rgba(255,255,255,0.02))] p-7"
+            className="rounded-[1.8rem] border border-red-500/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.05),rgba(127,29,29,0.04),rgba(56,189,248,0.026))] p-7"
           >
             <p className="text-xs uppercase tracking-[0.24em] text-red-300">Education</p>
             <h3 className="mt-3 font-serif text-4xl italic text-white">Academic Background</h3>
@@ -1082,7 +1088,7 @@ function Contact() {
         whileInView={{ opacity: 1, scale: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.7 }}
-        className="mx-auto max-w-5xl rounded-[2rem] border border-red-500/10 bg-[radial-gradient(circle_at_top,rgba(185,28,28,0.16),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(15,23,42,0.95),transparent_42%),linear-gradient(135deg,rgba(255,255,255,0.055),rgba(127,29,29,0.045),rgba(255,255,255,0.018))] p-8 text-center shadow-[0_0_70px_rgba(127,29,29,0.14)] md:p-14"
+        className="mx-auto max-w-5xl rounded-[2rem] border border-red-500/10 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.22),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.20),transparent_42%),linear-gradient(135deg,rgba(255,255,255,0.055),rgba(127,29,29,0.045),rgba(56,189,248,0.026))] p-8 text-center shadow-[0_0_80px_rgba(56,189,248,0.10)] md:p-14"
       >
         <SectionHeader
           eyebrow="Contact"
@@ -1113,7 +1119,7 @@ function Contact() {
           <MagneticButton
             href={profile.linkedin}
             external
-            className="rounded-full border border-red-500/15 bg-white/[0.04] px-6 py-3 text-slate-200 transition hover:border-red-300/60 hover:bg-red-500/10 hover:text-white"
+            className="rounded-full border border-red-500/15 bg-white/[0.04] px-6 py-3 text-slate-200 transition hover:border-sky-300/60 hover:bg-sky-500/10 hover:text-white"
           >
             <span className="inline-flex items-center gap-2"><LinkedInIcon size={18} /> LinkedIn</span>
           </MagneticButton>
@@ -1121,7 +1127,7 @@ function Contact() {
           <MagneticButton
             href={profile.github}
             external
-            className="rounded-full border border-red-500/15 bg-white/[0.04] px-6 py-3 text-slate-200 transition hover:border-red-300/60 hover:bg-red-500/10 hover:text-white"
+            className="rounded-full border border-red-500/15 bg-white/[0.04] px-6 py-3 text-slate-200 transition hover:border-sky-300/60 hover:bg-sky-500/10 hover:text-white"
           >
             <span className="inline-flex items-center gap-2"><GitHubIcon size={18} /> GitHub</span>
           </MagneticButton>
@@ -1129,7 +1135,7 @@ function Contact() {
           <MagneticButton
             href={profile.leetcode}
             external
-            className="rounded-full border border-red-500/15 bg-white/[0.04] px-6 py-3 text-slate-200 transition hover:border-red-300/60 hover:bg-red-500/10 hover:text-white"
+            className="rounded-full border border-red-500/15 bg-white/[0.04] px-6 py-3 text-slate-200 transition hover:border-sky-300/60 hover:bg-sky-500/10 hover:text-white"
           >
             <span className="inline-flex items-center gap-2"><LeetCodeIcon size={18} /> LeetCode</span>
           </MagneticButton>
@@ -1137,7 +1143,7 @@ function Contact() {
           <MagneticButton
             href={profile.codeforces}
             external
-            className="rounded-full border border-red-500/15 bg-white/[0.04] px-6 py-3 text-slate-200 transition hover:border-red-300/60 hover:bg-red-500/10 hover:text-white"
+            className="rounded-full border border-red-500/15 bg-white/[0.04] px-6 py-3 text-slate-200 transition hover:border-sky-300/60 hover:bg-sky-500/10 hover:text-white"
           >
             <span className="inline-flex items-center gap-2"><CodeforcesIcon size={18} /> Codeforces</span>
           </MagneticButton>
@@ -1175,7 +1181,4 @@ export default function App() {
     </>
   );
 }
-
-
-
 
