@@ -1161,7 +1161,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="border-t border-red-500/10 bg-black px-5 py-8 text-center text-sm text-slate-500">
-      © {new Date().getFullYear()} Ayush Kumar Shaw · Built with React, Tailwind CSS, and premium motion design.
+      © {new Date().getFullYear()} Ayush Kumar Shaw · Built with React, Tailwind CSS.
     </footer>
   );
 }
