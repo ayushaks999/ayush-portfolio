@@ -1,3 +1,5 @@
+function SpaceBackground(){ return null; }
+function ShootingStars(){ return null; }
 import React, { useMemo, useRef, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
 import {
@@ -12,6 +14,7 @@ import {
 } from "framer-motion";
 import {
   ArrowUpRight,
+
   BrainCircuit,
   Cloud,
   Code2,
