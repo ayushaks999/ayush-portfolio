@@ -191,7 +191,7 @@ const projects = [
     tech: ["Python", "Streamlit", "LangChain", "Gemini", "ChromaDB", "SQLite", "Docker", "Azure"],
     repo: "https://github.com/ayushaks999/RaG_Chatbot",
     image:
-      "https://images.unsplash.com/photo-1642427749670-f20e2e76ed8c?auto=format&fit=crop&w=1600&q=90",
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "AI Sales & Marketing Report Generator",
@@ -201,7 +201,7 @@ const projects = [
     tech: ["Python", "Streamlit", "AutoGen", "RAG", "ChromaDB", "SQLite", "Docker"],
     repo: "https://github.com/ayushaks999/Report_Generator",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1600&q=90",
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "ARGO RAG Explorer",
@@ -211,7 +211,7 @@ const projects = [
     tech: ["Python", "Streamlit", "LangChain", "ChromaDB", "SQLAlchemy", "XGBoost", "LightGBM"],
     repo: "https://github.com/ayushaks999/OceanForge_AI",
     image:
-      "https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=1600&q=90",
+      "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "AI Meeting Summarizer",
@@ -221,7 +221,7 @@ const projects = [
     tech: ["Electron", "Flask", "Flask-SocketIO", "SQLite", "SQLAlchemy", "Deepgram", "Socket.IO"],
     repo: "https://github.com/ayushaks999/AI-Meeting-Summarizer",
     image:
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=90",
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "Voice Assistant Project",
@@ -231,7 +231,7 @@ const projects = [
     tech: ["Python", "Flask", "Groq API", "Open-Meteo API", "yt-dlp", "VLC", "Speech Recognition"],
     repo: "https://github.com/ayushaks999/Assistant#voice-assistant-project",
     image:
-      "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1600&q=90",
+      "https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "Malaria Detection Pipeline",
@@ -241,7 +241,7 @@ const projects = [
     tech: ["Python", "TensorFlow", "CNN", "OpenCV", "Computer Vision"],
     repo: "https://github.com/ayushaks999/Malaria_Prediction",
     image:
-      "https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1600&q=90",
+      "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1400&q=90",
   },
 ];
 
@@ -505,7 +505,7 @@ function Hero() {
             variants={itemVariants}
             className="mt-5 max-w-3xl font-serif text-5xl italic leading-[0.92] text-white md:text-7xl"
           >
-            Building Production AI Systems & Scalable Backend Infrastructure.
+            Building products that feel intelligent.
           </motion.h1>
 
           <motion.p variants={itemVariants} className="mt-7 max-w-2xl text-lg leading-8 text-slate-300">
@@ -913,7 +913,7 @@ function Projects() {
                     <motion.img
                       src={project.image}
                       alt={project.title}
-                      className="h-96 w-full object-cover object-center"
+                      className="h-72 w-full object-cover"
                       whileHover={{ scale: 1.08 }}
                       transition={{ duration: 0.7, ease: "easeOut" }}
                     />
