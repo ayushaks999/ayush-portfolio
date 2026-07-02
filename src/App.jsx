@@ -191,7 +191,7 @@ const projects = [
     tech: ["Python", "Streamlit", "LangChain", "Gemini", "ChromaDB", "SQLite", "Docker", "Azure"],
     repo: "https://github.com/ayushaks999/RaG_Chatbot",
     image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995",
   },
   {
     title: "AI Sales & Marketing Report Generator",
@@ -201,7 +201,7 @@ const projects = [
     tech: ["Python", "Streamlit", "AutoGen", "RAG", "ChromaDB", "SQLite", "Docker"],
     repo: "https://github.com/ayushaks999/Report_Generator",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
   },
   {
     title: "ARGO RAG Explorer",
@@ -211,7 +211,7 @@ const projects = [
     tech: ["Python", "Streamlit", "LangChain", "ChromaDB", "SQLAlchemy", "XGBoost", "LightGBM"],
     repo: "https://github.com/ayushaks999/OceanForge_AI",
     image:
-      "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1500375592092-bf1a4fc2be77",
   },
   {
     title: "AI Meeting Summarizer",
@@ -221,7 +221,7 @@ const projects = [
     tech: ["Electron", "Flask", "Flask-SocketIO", "SQLite", "SQLAlchemy", "Deepgram", "Socket.IO"],
     repo: "https://github.com/ayushaks999/AI-Meeting-Summarizer",
     image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1553877522-43269d4ea984",
   },
   {
     title: "Voice Assistant Project",
@@ -231,7 +231,7 @@ const projects = [
     tech: ["Python", "Flask", "Groq API", "Open-Meteo API", "yt-dlp", "VLC", "Speech Recognition"],
     repo: "https://github.com/ayushaks999/Assistant#voice-assistant-project",
     image:
-      "https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1589254065878-42c9da997008",
   },
   {
     title: "Malaria Detection Pipeline",
@@ -241,7 +241,7 @@ const projects = [
     tech: ["Python", "TensorFlow", "CNN", "OpenCV", "Computer Vision"],
     repo: "https://github.com/ayushaks999/Malaria_Prediction",
     image:
-      "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1400&q=90",
+      "https://images.unsplash.com/photo-1576671081837-49000212a370",
   },
 ];
 
@@ -783,8 +783,8 @@ function Skills() {
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 rounded-full bg-sky-500/12 blur-2xl"
               />
-              <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-red-500/10 bg-black/55 shadow-[0_0_60px_rgba(56,189,248,0.16)]">
-                <Layers3 className="text-red-300" size={30} />
+              <div className="absolute left-1/2 top-1/2 flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-3xl border border-cyan-400/20 bg-black/80 backdrop-blur-xl shadow-[0_0_50px_rgba(34,211,238,0.25)]">
+                <BrainCircuit className="text-cyan-300" size={42} />
               </div>
               {skillCloud.map((item, index) => (
                 <motion.div
@@ -913,11 +913,12 @@ function Projects() {
                     <motion.img
                       src={project.image}
                       alt={project.title}
-                      className="h-72 w-full object-cover"
+                      className="h-80 w-full object-cover object-center"
                       whileHover={{ scale: 1.08 }}
                       transition={{ duration: 0.7, ease: "easeOut" }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/25 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] opacity-10" />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.18),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.14),transparent_36%)] opacity-0 transition duration-300 group-hover:opacity-100" />
                     <motion.p
                       initial={{ opacity: 0, y: 8 }}
