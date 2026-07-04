@@ -30,12 +30,11 @@ import {
   Zap,
 } from "lucide-react";
 import ArgoImg from "./assets/projects/Argo.png";
-import ReportImg from "./assets/projects/Report.png";
-import RagImg from "./assets/projects/rag.png";
-import MeetingImg from "./assets/projects/meeting.png";
-import VoiceImg from "./assets/projects/voice.png";
 import MalariaImg from "./assets/projects/Malaria.png";
-
+import MeetingImg from "./assets/projects/meeting.png";
+import RagImg from "./assets/projects/rag.png";
+import ReportImg from "./assets/projects/Report.png";
+import VoiceImg from "./assets/projects/voice.png";
 function GitHubIcon({ size = 18, className = "" }) {
   return (
     <svg
@@ -196,61 +195,54 @@ const projects = [
       "Production-ready multi-user RAG chatbot with authentication, semantic retrieval, hybrid reranking, streaming answers, feedback-driven learning, Docker support, and Azure deployment readiness.",
     tech: ["Python", "Streamlit", "LangChain", "Gemini", "ChromaDB", "SQLite", "Docker", "Azure"],
     repo: "https://github.com/ayushaks999/RaG_Chatbot",
-    image:
-      rag,
+    image: RagImg,
   },
   {
     title: "AI Sales & Marketing Report Generator",
     category: "Production AI Systems",
     description:
-      "Agentic business intelligence system that converts raw sales and marketing data into executive-ready reports with charts, provenance, structured LLM outputs, and automated delivery.",
+      "Agentic business intelligence system that converts raw sales and marketing data into executive-ready reports with structured outputs and insights.",
     tech: ["Python", "Streamlit", "AutoGen", "RAG", "ChromaDB", "SQLite", "Docker"],
     repo: "https://github.com/ayushaks999/Report_Generator",
-    image:
-      Report,
+    image: ReportImg,
   },
   {
     title: "ARGO RAG Explorer",
     category: "Applied ML",
     description:
-      "Oceanographic ML + RAG platform for ARGO NetCDF ingestion, semantic retrieval, scientific visualization, retrieval traces, and predictive ML workflows.",
+      "Oceanographic ML + RAG platform for ARGO NetCDF ingestion, retrieval, visualization, and ML workflows.",
     tech: ["Python", "Streamlit", "LangChain", "ChromaDB", "SQLAlchemy", "XGBoost", "LightGBM"],
     repo: "https://github.com/ayushaks999/OceanForge_AI",
-    image:
-      Argo,
+    image: ArgoImg,
   },
   {
     title: "AI Meeting Summarizer",
     category: "Desktop AI Systems",
     description:
-      "Desktop meeting intelligence app that records meetings, transcribes audio in real time, generates AI summaries, extracts action items, stores data locally, and integrates with productivity workflows.",
-    tech: ["Electron", "Flask", "Flask-SocketIO", "SQLite", "SQLAlchemy", "Deepgram", "Socket.IO"],
+      "Desktop meeting intelligence app with real-time transcription, AI summaries, and action item extraction.",
+    tech: ["Electron", "Flask", "Socket.IO", "SQLite", "Deepgram"],
     repo: "https://github.com/ayushaks999/AI-Meeting-Summarizer",
-    image:
-      meeting,
+    image: MeetingImg,
   },
   {
     title: "Voice Assistant Project",
     category: "Automation Systems",
     description:
-      "Voice assistant with speech interaction, general Q&A, YouTube music playback, weather updates, reminders with notifications, and a real-time Flask chat UI.",
-    tech: ["Python", "Flask", "Groq API", "Open-Meteo API", "yt-dlp", "VLC", "Speech Recognition"],
+      "Voice assistant with speech interaction, YouTube playback, weather updates, reminders, and Flask UI.",
+    tech: ["Python", "Flask", "Groq API", "yt-dlp", "VLC"],
     repo: "https://github.com/ayushaks999/Assistant#voice-assistant-project",
-    image:
-      voice,
+    image: VoiceImg,
   },
   {
     title: "Malaria Detection Pipeline",
     category: "Deep Learning",
     description:
-      "Image-based malaria detection system with preprocessing, CNN training, evaluation, and reusable deep learning pipeline structure.",
-    tech: ["Python", "TensorFlow", "CNN", "OpenCV", "Computer Vision"],
+      "CNN-based malaria detection system with preprocessing, training, and evaluation pipeline.",
+    tech: ["Python", "TensorFlow", "CNN", "OpenCV"],
     repo: "https://github.com/ayushaks999/Malaria_Prediction",
-    image:
-      Malaria,
+    image: MalariaImg,
   },
 ];
-
 const filters = [
   "All",
   "Production AI Systems",
