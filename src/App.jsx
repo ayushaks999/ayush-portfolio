@@ -197,7 +197,7 @@ const projects = [
     tech: ["Python", "Streamlit", "LangChain", "Gemini", "ChromaDB", "SQLite", "Docker", "Azure"],
     repo: "https://github.com/ayushaks999/RaG_Chatbot",
     image:
-      "rag",
+      rag,
   },
   {
     title: "AI Sales & Marketing Report Generator",
@@ -207,7 +207,7 @@ const projects = [
     tech: ["Python", "Streamlit", "AutoGen", "RAG", "ChromaDB", "SQLite", "Docker"],
     repo: "https://github.com/ayushaks999/Report_Generator",
     image:
-      "Report",
+      Report,
   },
   {
     title: "ARGO RAG Explorer",
@@ -217,7 +217,7 @@ const projects = [
     tech: ["Python", "Streamlit", "LangChain", "ChromaDB", "SQLAlchemy", "XGBoost", "LightGBM"],
     repo: "https://github.com/ayushaks999/OceanForge_AI",
     image:
-      "Argo",
+      Argo,
   },
   {
     title: "AI Meeting Summarizer",
@@ -227,7 +227,7 @@ const projects = [
     tech: ["Electron", "Flask", "Flask-SocketIO", "SQLite", "SQLAlchemy", "Deepgram", "Socket.IO"],
     repo: "https://github.com/ayushaks999/AI-Meeting-Summarizer",
     image:
-      "meeting",
+      meeting,
   },
   {
     title: "Voice Assistant Project",
@@ -237,7 +237,7 @@ const projects = [
     tech: ["Python", "Flask", "Groq API", "Open-Meteo API", "yt-dlp", "VLC", "Speech Recognition"],
     repo: "https://github.com/ayushaks999/Assistant#voice-assistant-project",
     image:
-      "voice",
+      voice,
   },
   {
     title: "Malaria Detection Pipeline",
@@ -247,7 +247,7 @@ const projects = [
     tech: ["Python", "TensorFlow", "CNN", "OpenCV", "Computer Vision"],
     repo: "https://github.com/ayushaks999/Malaria_Prediction",
     image:
-      "Malaria",
+      Malaria,
   },
 ];
 
