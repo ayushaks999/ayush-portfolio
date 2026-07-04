@@ -29,6 +29,12 @@ import {
   Orbit,
   Zap,
 } from "lucide-react";
+import ArgoImg from "./assets/projects/Argo.png";
+import ReportImg from "./assets/projects/Report.png";
+import RagImg from "./assets/projects/rag.png";
+import MeetingImg from "./assets/projects/meeting.png";
+import VoiceImg from "./assets/projects/voice.png";
+import MalariaImg from "./assets/projects/Malaria.png";
 
 function GitHubIcon({ size = 18, className = "" }) {
   return (
@@ -191,7 +197,7 @@ const projects = [
     tech: ["Python", "Streamlit", "LangChain", "Gemini", "ChromaDB", "SQLite", "Docker", "Azure"],
     repo: "https://github.com/ayushaks999/RaG_Chatbot",
     image:
-      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=90",
+      "rag",
   },
   {
     title: "AI Sales & Marketing Report Generator",
@@ -201,7 +207,7 @@ const projects = [
     tech: ["Python", "Streamlit", "AutoGen", "RAG", "ChromaDB", "SQLite", "Docker"],
     repo: "https://github.com/ayushaks999/Report_Generator",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=90",
+      "Report",
   },
   {
     title: "ARGO RAG Explorer",
@@ -211,7 +217,7 @@ const projects = [
     tech: ["Python", "Streamlit", "LangChain", "ChromaDB", "SQLAlchemy", "XGBoost", "LightGBM"],
     repo: "https://github.com/ayushaks999/OceanForge_AI",
     image:
-      "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=90",
+      "Argo",
   },
   {
     title: "AI Meeting Summarizer",
@@ -221,7 +227,7 @@ const projects = [
     tech: ["Electron", "Flask", "Flask-SocketIO", "SQLite", "SQLAlchemy", "Deepgram", "Socket.IO"],
     repo: "https://github.com/ayushaks999/AI-Meeting-Summarizer",
     image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=90",
+      "meeting",
   },
   {
     title: "Voice Assistant Project",
@@ -231,7 +237,7 @@ const projects = [
     tech: ["Python", "Flask", "Groq API", "Open-Meteo API", "yt-dlp", "VLC", "Speech Recognition"],
     repo: "https://github.com/ayushaks999/Assistant#voice-assistant-project",
     image:
-      "https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=1400&q=90",
+      "voice",
   },
   {
     title: "Malaria Detection Pipeline",
@@ -241,7 +247,7 @@ const projects = [
     tech: ["Python", "TensorFlow", "CNN", "OpenCV", "Computer Vision"],
     repo: "https://github.com/ayushaks999/Malaria_Prediction",
     image:
-      "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1400&q=90",
+      "Malaria",
   },
 ];
 
