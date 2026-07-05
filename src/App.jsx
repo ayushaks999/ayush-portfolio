@@ -29,13 +29,7 @@ import {
   Orbit,
   Zap,
 } from "lucide-react";
-import ArgoImg from "./assets/projects/Argo.png";
-import MalariaImg from "./assets/projects/Malaria.png";
-import MeetingImg from "./assets/projects/meeting.png";
-import RagImg from "./assets/projects/rag.png";
-import ReportImg from "./assets/projects/Report.png";
-import VoiceImg from "./assets/projects/voice.png";
-import SpaceBackground from "./SpaceBackground";
+
 function GitHubIcon({ size = 18, className = "" }) {
   return (
     <svg
@@ -196,54 +190,61 @@ const projects = [
       "Production-ready multi-user RAG chatbot with authentication, semantic retrieval, hybrid reranking, streaming answers, feedback-driven learning, Docker support, and Azure deployment readiness.",
     tech: ["Python", "Streamlit", "LangChain", "Gemini", "ChromaDB", "SQLite", "Docker", "Azure"],
     repo: "https://github.com/ayushaks999/RaG_Chatbot",
-    image: RagImg,
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "AI Sales & Marketing Report Generator",
     category: "Production AI Systems",
     description:
-      "Agentic business intelligence system that converts raw sales and marketing data into executive-ready reports with structured outputs and insights.",
+      "Agentic business intelligence system that converts raw sales and marketing data into executive-ready reports with charts, provenance, structured LLM outputs, and automated delivery.",
     tech: ["Python", "Streamlit", "AutoGen", "RAG", "ChromaDB", "SQLite", "Docker"],
     repo: "https://github.com/ayushaks999/Report_Generator",
-    image: ReportImg,
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "ARGO RAG Explorer",
     category: "Applied ML",
     description:
-      "Oceanographic ML + RAG platform for ARGO NetCDF ingestion, retrieval, visualization, and ML workflows.",
+      "Oceanographic ML + RAG platform for ARGO NetCDF ingestion, semantic retrieval, scientific visualization, retrieval traces, and predictive ML workflows.",
     tech: ["Python", "Streamlit", "LangChain", "ChromaDB", "SQLAlchemy", "XGBoost", "LightGBM"],
     repo: "https://github.com/ayushaks999/OceanForge_AI",
-    image: ArgoImg,
+    image:
+      "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "AI Meeting Summarizer",
     category: "Desktop AI Systems",
     description:
-      "Desktop meeting intelligence app with real-time transcription, AI summaries, and action item extraction.",
-    tech: ["Electron", "Flask", "Socket.IO", "SQLite", "Deepgram"],
+      "Desktop meeting intelligence app that records meetings, transcribes audio in real time, generates AI summaries, extracts action items, stores data locally, and integrates with productivity workflows.",
+    tech: ["Electron", "Flask", "Flask-SocketIO", "SQLite", "SQLAlchemy", "Deepgram", "Socket.IO"],
     repo: "https://github.com/ayushaks999/AI-Meeting-Summarizer",
-    image: MeetingImg,
+    image:
+      "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "Voice Assistant Project",
     category: "Automation Systems",
     description:
-      "Voice assistant with speech interaction, YouTube playback, weather updates, reminders, and Flask UI.",
-    tech: ["Python", "Flask", "Groq API", "yt-dlp", "VLC"],
+      "Voice assistant with speech interaction, general Q&A, YouTube music playback, weather updates, reminders with notifications, and a real-time Flask chat UI.",
+    tech: ["Python", "Flask", "Groq API", "Open-Meteo API", "yt-dlp", "VLC", "Speech Recognition"],
     repo: "https://github.com/ayushaks999/Assistant#voice-assistant-project",
-    image: VoiceImg,
+    image:
+      "https://images.unsplash.com/photo-1518444065439-e933c06ce9cd?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "Malaria Detection Pipeline",
     category: "Deep Learning",
     description:
-      "CNN-based malaria detection system with preprocessing, training, and evaluation pipeline.",
-    tech: ["Python", "TensorFlow", "CNN", "OpenCV"],
+      "Image-based malaria detection system with preprocessing, CNN training, evaluation, and reusable deep learning pipeline structure.",
+    tech: ["Python", "TensorFlow", "CNN", "OpenCV", "Computer Vision"],
     repo: "https://github.com/ayushaks999/Malaria_Prediction",
-    image: MalariaImg,
+    image:
+      "https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&w=1400&q=90",
   },
 ];
+
 const filters = [
   "All",
   "Production AI Systems",
@@ -302,7 +303,14 @@ function SectionHeader({ eyebrow, title, desc }) {
   );
 }
 
+function useMouseGlow() {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
 
+  function onMove(e) {
+    x.set(e.clientX);
+    y.set(e.clientY);
+  }
 
   const background = useMotionTemplate`radial-gradient(620px circle at ${x}px ${y}px, rgba(239,68,68,0.10), transparent 42%)`;
   return { onMove, background };
@@ -428,7 +436,43 @@ function Navbar() {
   );
 }
 
+function AmbientFX() {
+  const reduceMotion = useReducedMotion();
+  const { background, onMove } = useMouseGlow();
 
+  return (
+    <div onMouseMove={onMove} className="pointer-events-none fixed inset-0 z-[1]">
+      <motion.div style={{ background }} className="absolute inset-0 opacity-100" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.26),transparent_31%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.20),transparent_33%),radial-gradient(circle_at_center,rgba(255,255,255,0.035),transparent_52%),linear-gradient(to_bottom,rgba(255,255,255,0.018),transparent_20%,transparent_80%,rgba(255,255,255,0.018))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.026)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.026)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.15] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]" />
+
+      <motion.div
+        aria-hidden
+        animate={reduceMotion ? {} : { x: [0, 24, 0], y: [0, -18, 0] }}
+        transition={reduceMotion ? {} : { duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute left-[-7rem] top-[5rem] h-96 w-96 rounded-full bg-red-500/18 blur-3xl"
+      />
+      <motion.div
+        aria-hidden
+        animate={reduceMotion ? {} : { x: [0, -20, 0], y: [0, 20, 0] }}
+        transition={reduceMotion ? {} : { duration: 16, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-[-8rem] right-[-7rem] h-[28rem] w-[28rem] rounded-full bg-sky-400/16 blur-3xl"
+      />
+      <motion.div
+        aria-hidden
+        animate={reduceMotion ? {} : { opacity: [0.35, 0.8, 0.35], scale: [1, 1.08, 1] }}
+        transition={reduceMotion ? {} : { duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-[8%] right-[8%] h-64 w-64 rounded-full bg-cyan-300/8 blur-3xl"
+      />
+      <motion.div
+        aria-hidden
+        animate={reduceMotion ? {} : { rotate: [0, 360] }}
+        transition={reduceMotion ? {} : { duration: 22, repeat: Infinity, ease: "linear" }}
+        className="absolute bottom-[10%] left-[8%] h-56 w-56 rounded-full border border-white/5 blur-[1px]"
+      />
+    </div>
+  );
+}
 
 function Hero() {
   const reduceMotion = useReducedMotion();
@@ -438,6 +482,8 @@ function Hero() {
 
   return (
     <section id="home" className="relative overflow-hidden bg-[#050505] px-5 pb-24 pt-32 text-white">
+      <AmbientFX />
+
       <motion.div
         style={reduceMotion ? undefined : { y: heroY, opacity: heroOpacity }}
         variants={containerVariants}
@@ -1118,9 +1164,7 @@ function Footer() {
 export default function App() {
   return (
     <>
-      <SpaceBackground />
-
-      <main className="relative z-10 min-h-screen bg-transparent text-white selection:bg-red-600 selection:text-white">
+      <main className="min-h-screen bg-[#050505] text-white selection:bg-red-600 selection:text-white">
         <Navbar />
         <Hero />
         <About />
