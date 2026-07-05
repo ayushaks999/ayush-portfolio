@@ -35,6 +35,7 @@ import MeetingImg from "./assets/projects/meeting.png";
 import RagImg from "./assets/projects/rag.png";
 import ReportImg from "./assets/projects/Report.png";
 import VoiceImg from "./assets/projects/voice.png";
+import SpaceBackground from "./SpaceBackground";
 function GitHubIcon({ size = 18, className = "" }) {
   return (
     <svg
@@ -301,14 +302,7 @@ function SectionHeader({ eyebrow, title, desc }) {
   );
 }
 
-function useMouseGlow() {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
 
-  function onMove(e) {
-    x.set(e.clientX);
-    y.set(e.clientY);
-  }
 
   const background = useMotionTemplate`radial-gradient(620px circle at ${x}px ${y}px, rgba(239,68,68,0.10), transparent 42%)`;
   return { onMove, background };
@@ -434,43 +428,7 @@ function Navbar() {
   );
 }
 
-function AmbientFX() {
-  const reduceMotion = useReducedMotion();
-  const { background, onMove } = useMouseGlow();
 
-  return (
-    <div onMouseMove={onMove} className="pointer-events-none fixed inset-0 z-[1]">
-      <motion.div style={{ background }} className="absolute inset-0 opacity-100" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(239,68,68,0.26),transparent_31%),radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.20),transparent_33%),radial-gradient(circle_at_center,rgba(255,255,255,0.035),transparent_52%),linear-gradient(to_bottom,rgba(255,255,255,0.018),transparent_20%,transparent_80%,rgba(255,255,255,0.018))]" />
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.026)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.026)_1px,transparent_1px)] bg-[size:72px_72px] opacity-[0.15] [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]" />
-
-      <motion.div
-        aria-hidden
-        animate={reduceMotion ? {} : { x: [0, 24, 0], y: [0, -18, 0] }}
-        transition={reduceMotion ? {} : { duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-[-7rem] top-[5rem] h-96 w-96 rounded-full bg-red-500/18 blur-3xl"
-      />
-      <motion.div
-        aria-hidden
-        animate={reduceMotion ? {} : { x: [0, -20, 0], y: [0, 20, 0] }}
-        transition={reduceMotion ? {} : { duration: 16, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-[-8rem] right-[-7rem] h-[28rem] w-[28rem] rounded-full bg-sky-400/16 blur-3xl"
-      />
-      <motion.div
-        aria-hidden
-        animate={reduceMotion ? {} : { opacity: [0.35, 0.8, 0.35], scale: [1, 1.08, 1] }}
-        transition={reduceMotion ? {} : { duration: 7, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-[8%] right-[8%] h-64 w-64 rounded-full bg-cyan-300/8 blur-3xl"
-      />
-      <motion.div
-        aria-hidden
-        animate={reduceMotion ? {} : { rotate: [0, 360] }}
-        transition={reduceMotion ? {} : { duration: 22, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-[10%] left-[8%] h-56 w-56 rounded-full border border-white/5 blur-[1px]"
-      />
-    </div>
-  );
-}
 
 function Hero() {
   const reduceMotion = useReducedMotion();
@@ -480,8 +438,6 @@ function Hero() {
 
   return (
     <section id="home" className="relative overflow-hidden bg-[#050505] px-5 pb-24 pt-32 text-white">
-      <AmbientFX />
-
       <motion.div
         style={reduceMotion ? undefined : { y: heroY, opacity: heroOpacity }}
         variants={containerVariants}
@@ -1162,7 +1118,9 @@ function Footer() {
 export default function App() {
   return (
     <>
-      <main className="min-h-screen bg-[#050505] text-white selection:bg-red-600 selection:text-white">
+      <SpaceBackground />
+
+      <main className="relative z-10 min-h-screen bg-transparent text-white selection:bg-red-600 selection:text-white">
         <Navbar />
         <Hero />
         <About />
