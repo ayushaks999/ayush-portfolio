@@ -108,7 +108,7 @@ const profile = {
   subtitle:
     "Computer Science undergraduate at NIT Durgapur building production-grade backend systems, GenAI applications, RAG pipelines, and applied ML solutions.",
   email: "ayushaks099@gmail.com",
-  github: "https://github.com/ayushaks999",
+  github: "https://github.com/ayushaks9990",
   linkedin: "https://linkedin.com/in/ayush-shaw-231b86325",
   leetcode: "https://leetcode.com/u/ayushaks9999/",
   codeforces: "https://codeforces.com/profile/ayushaks999",
@@ -194,7 +194,7 @@ const projects = [
     description:
       "Production-ready multi-user RAG chatbot with authentication, semantic retrieval, hybrid reranking, streaming answers, feedback-driven learning, Docker support, and Azure deployment readiness.",
     tech: ["Python", "Streamlit", "LangChain", "Gemini", "ChromaDB", "SQLite", "Docker", "Azure"],
-    repo: "https://github.com/ayushaks999/RaG_Chatbot",
+    repo: "https://github.com/ayushaks9990/RaG_Chatbot",
     image: RagImg,
   },
   {
@@ -203,7 +203,7 @@ const projects = [
     description:
       "Agentic business intelligence system that converts raw sales and marketing data into executive-ready reports with structured outputs and insights.",
     tech: ["Python", "Streamlit", "AutoGen", "RAG", "ChromaDB", "SQLite", "Docker"],
-    repo: "https://github.com/ayushaks999/Report_Generator",
+    repo: "https://github.com/ayushaks9990/Report_Generator",
     image: ReportImg,
   },
   {
@@ -212,7 +212,7 @@ const projects = [
     description:
       "Oceanographic ML + RAG platform for ARGO NetCDF ingestion, retrieval, visualization, and ML workflows.",
     tech: ["Python", "Streamlit", "LangChain", "ChromaDB", "SQLAlchemy", "XGBoost", "LightGBM"],
-    repo: "https://github.com/ayushaks999/OceanForge_AI",
+    repo: "https://github.com/ayushaks9990/OceanForge_AI",
     image: ArgoImg,
   },
   {
@@ -221,7 +221,7 @@ const projects = [
     description:
       "Desktop meeting intelligence app with real-time transcription, AI summaries, and action item extraction.",
     tech: ["Electron", "Flask", "Socket.IO", "SQLite", "Deepgram"],
-    repo: "https://github.com/ayushaks999/AI-Meeting-Summarizer",
+    repo: "https://github.com/ayushaks9990/AI-Meeting-Summarizer",
     image: MeetingImg,
   },
   {
@@ -230,7 +230,7 @@ const projects = [
     description:
       "Voice assistant with speech interaction, YouTube playback, weather updates, reminders, and Flask UI.",
     tech: ["Python", "Flask", "Groq API", "yt-dlp", "VLC"],
-    repo: "https://github.com/ayushaks999/Assistant#voice-assistant-project",
+    repo: "https://github.com/ayushaks9990/Assistant#voice-assistant-project",
     image: VoiceImg,
   },
   {
@@ -239,7 +239,7 @@ const projects = [
     description:
       "CNN-based malaria detection system with preprocessing, training, and evaluation pipeline.",
     tech: ["Python", "TensorFlow", "CNN", "OpenCV"],
-    repo: "https://github.com/ayushaks999/Malaria_Prediction",
+    repo: "https://github.com/ayushaks9990/Malaria_Prediction",
     image: MalariaImg,
   },
 ];
