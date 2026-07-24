@@ -120,7 +120,7 @@ const stats = [
   { value: "1851+", label: "LeetCode Max Rating" },
   { value: "Knight", label: "LeetCode Level" },
   { value: "1400+", label: "Codeforces Rating" },
-  { value: "1000+", label: "DSA Problems Solved" },
+  { value: "1200+", label: "DSA Problems Solved" },
 ];
 
 const skillGroups = [
@@ -1009,7 +1009,7 @@ function Achievements() {
               },
               {
                 icon: Code2,
-                title: "1000+ Problems",
+                title: "1200+ Problems",
                 text: "Solved across arrays, graphs, DP, trees, greedy, binary search, and advanced structures",
               },
               {
