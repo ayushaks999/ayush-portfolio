@@ -1,7 +1,7 @@
 import React, { useMemo, useRef, useState } from "react";
 import { Analytics } from "@vercel/analytics/react";
-import {
-  AnimatePresence,
+import { 
+  AnimatePresence, 
   motion,
   useReducedMotion,
   useScroll,
