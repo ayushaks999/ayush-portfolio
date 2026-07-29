@@ -1014,9 +1014,10 @@ function Achievements() {
               },
               {
                 icon: GraduationCap,
+               
                 title: "Academics",
-                text: "NIT Durgapur · B.Tech CSE",
-              },
+                text: "NIT Durgapur · B.Tech CSE · 10/10 Grades in OOP, DSA, Mathematics, AI/ML, Software Engineering & Embedded Systems",
+             },
             ].map((card, index) => {
               const Icon = card.icon;
               return (
