@@ -164,7 +164,7 @@ const skillGroups = [
   {
     title: "CS Core",
     icon: Trophy,
-    items: ["Data Structures", "Algorithms", "System Design", "OOP", "Competitive Programming","Software Engineering","Computer Organization and Architecture"," Database Management System ","Computer Networks",],
+    items: ["Data Structures", "Algorithms", "System Design", "OOP", "Competitive Programming"," Database Management System ","Software Engineering","Computer Organization and Architecture","Computer Networks",],
   },
 ];
 
